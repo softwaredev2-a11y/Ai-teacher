@@ -9,8 +9,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "StudyFetch — Learning that adapts to you",
-  description: "The top AI learning platform for students.",
+  title: "Class 9 Science Map · Jarves",
+  description:
+    "Interactive prerequisite map for Sindh / Karachi Board Class 9 Physics, Chemistry and Maths.",
 };
 
 export default function RootLayout({
@@ -20,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} h-full antialiased`}>
-      <body className="min-h-full bg-white">
+      <body className="min-h-full bg-[#0a0a0a]">
         <Providers>{children}</Providers>
       </body>
     </html>
