@@ -61,6 +61,11 @@ const SUBJECTS: { id: SubjectId; label: string; blurb: string; accent: string }[
   { id: "physics", label: "Physics", blurb: "Motion, force, energy & more", accent: "#4F8CFF" },
   { id: "chemistry", label: "Chemistry", blurb: "Atoms, bonds, solutions & more", accent: "#2DD4BF" },
   { id: "maths", label: "Maths", blurb: "Algebra, graphs, triangles & more", accent: "#F472B6" },
+  { id: "english", label: "English", blurb: "Grammar, essays, letters & more", accent: "#F87171" },
+  { id: "urdu", label: "Urdu", blurb: "مضمون، درخواست، تشریح و گرامر", accent: "#E879F9" },
+  { id: "islamiat", label: "Islamiat", blurb: "ایمانیات، عبادات، سیرت ﷺ", accent: "#22C55E" },
+  { id: "biology", label: "Biology", blurb: "Cells, tissues, mitosis & more", accent: "#34D399" },
+  { id: "computer", label: "Computer Science", blurb: "Hardware, OS, flowcharts & more", accent: "#38BDF8" },
 ];
 
 function enabledForSubject(subject: SubjectId): Record<ChapterId, boolean> {
@@ -510,7 +515,7 @@ export function CurriculumGraph() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.35, ease }}
-            className="absolute inset-0 z-20 flex items-center justify-center overflow-y-auto bg-[#0a0a0a]/92 p-5 backdrop-blur-sm sm:p-6"
+            className="absolute inset-0 z-20 flex items-start justify-center overflow-y-auto bg-[#0a0a0a]/92 p-5 backdrop-blur-sm sm:items-center sm:p-6"
           >
             <div className="w-full max-w-lg">
               <p className="mb-3 text-[13px] font-semibold tracking-[0.2em]">JARVES</p>

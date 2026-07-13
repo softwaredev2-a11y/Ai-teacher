@@ -1,4 +1,12 @@
-export type SubjectId = "physics" | "chemistry" | "maths";
+export type SubjectId =
+  | "physics"
+  | "chemistry"
+  | "maths"
+  | "english"
+  | "urdu"
+  | "islamiat"
+  | "biology"
+  | "computer";
 
 export type ChapterId =
   | "measurement"
@@ -25,7 +33,42 @@ export type ChapterId =
   | "math-fractions"
   | "math-linear"
   | "math-graphs"
-  | "math-triangles";
+  | "math-triangles"
+  | "eng-reading"
+  | "eng-grammar"
+  | "eng-essay"
+  | "eng-letter"
+  | "eng-dialogue"
+  | "eng-story"
+  | "eng-translation"
+  | "eng-textbook"
+  | "urdu-tashreeh"
+  | "urdu-summary"
+  | "urdu-essay"
+  | "urdu-application"
+  | "urdu-letter"
+  | "urdu-idioms"
+  | "urdu-grammar"
+  | "urdu-textbook"
+  | "isl-beliefs"
+  | "isl-ibadat"
+  | "isl-seerah"
+  | "isl-akhlaq"
+  | "isl-rights"
+  | "isl-quran-hadith"
+  | "isl-daily"
+  | "bio-intro"
+  | "bio-problem"
+  | "bio-diversity"
+  | "bio-cells"
+  | "bio-cycle"
+  | "cs-basics"
+  | "cs-systems"
+  | "cs-storage"
+  | "cs-io"
+  | "cs-os"
+  | "cs-problem"
+  | "cs-flow";
 
 export type Topic = {
   id: string;
@@ -75,6 +118,46 @@ export const CHAPTERS: {
   { id: "math-graphs", name: "Linear Graphs", color: "#818CF8", subject: "maths", priority: "high" },
   { id: "math-reals", name: "Real & Radical Numbers", color: "#FBBF24", subject: "maths", priority: "high" },
   { id: "math-sets", name: "Sets", color: "#F59E0B", subject: "maths", priority: "high" },
+  // English
+  { id: "eng-grammar", name: "Grammar", color: "#F87171", subject: "english", priority: "high" },
+  { id: "eng-essay", name: "Essay Writing", color: "#FB923C", subject: "english", priority: "high" },
+  { id: "eng-letter", name: "Letter & Application", color: "#FDBA74", subject: "english", priority: "high" },
+  { id: "eng-reading", name: "Reading Comprehension", color: "#EF4444", subject: "english", priority: "high" },
+  { id: "eng-dialogue", name: "Dialogue Writing", color: "#FCA5A5", subject: "english", priority: "high" },
+  { id: "eng-story", name: "Story Writing", color: "#F97316", subject: "english", priority: "high" },
+  { id: "eng-translation", name: "Translation", color: "#EA580C", subject: "english", priority: "high" },
+  { id: "eng-textbook", name: "Textbook Exercises", color: "#DC2626", subject: "english", priority: "high" },
+  // Urdu
+  { id: "urdu-essay", name: "مضمون نویسی", color: "#E879F9", subject: "urdu", priority: "high" },
+  { id: "urdu-application", name: "درخواست نویسی", color: "#D946EF", subject: "urdu", priority: "high" },
+  { id: "urdu-letter", name: "خط نویسی", color: "#C026D3", subject: "urdu", priority: "high" },
+  { id: "urdu-tashreeh", name: "تشریح", color: "#A855F7", subject: "urdu", priority: "high" },
+  { id: "urdu-summary", name: "خلاصہ نویسی", color: "#9333EA", subject: "urdu", priority: "high" },
+  { id: "urdu-idioms", name: "محاورے و ضرب الامثال", color: "#7E22CE", subject: "urdu", priority: "high" },
+  { id: "urdu-grammar", name: "اردو گرامر", color: "#6B21A8", subject: "urdu", priority: "high" },
+  { id: "urdu-textbook", name: "درسی سوالات", color: "#581C87", subject: "urdu", priority: "high" },
+  // Islamiat
+  { id: "isl-beliefs", name: "ایمانیات", color: "#22C55E", subject: "islamiat", priority: "high" },
+  { id: "isl-ibadat", name: "عبادات", color: "#16A34A", subject: "islamiat", priority: "high" },
+  { id: "isl-seerah", name: "سیرت النبی ﷺ", color: "#15803D", subject: "islamiat", priority: "high" },
+  { id: "isl-akhlaq", name: "اخلاقیات و معاشرت", color: "#4ADE80", subject: "islamiat", priority: "high" },
+  { id: "isl-rights", name: "حقوق العباد", color: "#86EFAC", subject: "islamiat", priority: "high" },
+  { id: "isl-quran-hadith", name: "آیات و احادیث", color: "#BBF7D0", subject: "islamiat", priority: "high" },
+  { id: "isl-daily", name: "اسلامی تعلیمات", color: "#14532D", subject: "islamiat", priority: "high" },
+  // Biology
+  { id: "bio-intro", name: "Introduction to Biology", color: "#34D399", subject: "biology", priority: "high" },
+  { id: "bio-problem", name: "Solving a Biological Problem", color: "#10B981", subject: "biology", priority: "high" },
+  { id: "bio-diversity", name: "Biodiversity", color: "#059669", subject: "biology", priority: "high" },
+  { id: "bio-cells", name: "Cells and Tissues", color: "#047857", subject: "biology", priority: "high" },
+  { id: "bio-cycle", name: "Cell Cycle", color: "#065F46", subject: "biology", priority: "high" },
+  // Computer Science
+  { id: "cs-basics", name: "Basics of IT", color: "#38BDF8", subject: "computer", priority: "high" },
+  { id: "cs-systems", name: "Computer Systems", color: "#0EA5E9", subject: "computer", priority: "high" },
+  { id: "cs-storage", name: "Storage Devices", color: "#0284C7", subject: "computer", priority: "high" },
+  { id: "cs-io", name: "Input & Output Devices", color: "#0369A1", subject: "computer", priority: "high" },
+  { id: "cs-os", name: "Operating Systems", color: "#7DD3FC", subject: "computer", priority: "high" },
+  { id: "cs-problem", name: "Problem Solving", color: "#BAE6FD", subject: "computer", priority: "high" },
+  { id: "cs-flow", name: "Flowcharts & Algorithms", color: "#075985", subject: "computer", priority: "high" },
 ];
 
 export const TOPICS: Topic[] = [
@@ -245,6 +328,87 @@ export const TOPICS: Topic[] = [
   { id: "math-congruence", name: "SAS, ASA, AAS, RHS", chapter: "math-triangles", level: 0.7, description: "Criteria for triangle congruence." },
   { id: "math-tri-theorems", name: "Theorems and Proofs", chapter: "math-triangles", level: 0.76, description: "Prove results using congruence." },
   { id: "math-tri-construct", name: "Construction & Reasoning", chapter: "math-triangles", level: 0.78, description: "Construct and justify congruent triangles." },
+
+  // ——— English ———
+  { id: "eng-comprehension", name: "Reading Comprehension", chapter: "eng-reading", level: 0.2, description: "Unseen passage — read and answer questions." },
+  { id: "eng-tenses", name: "Tenses", chapter: "eng-grammar", level: 0.1, description: "Present, past and future forms." },
+  { id: "eng-voice", name: "Active & Passive Voice", chapter: "eng-grammar", level: 0.28, description: "Change voice of sentences." },
+  { id: "eng-narration", name: "Direct & Indirect Speech", chapter: "eng-grammar", level: 0.32, description: "Reported speech rules." },
+  { id: "eng-prepositions", name: "Prepositions", chapter: "eng-grammar", level: 0.18, description: "Correct use of prepositions." },
+  { id: "eng-essay-friend", name: "Essay: My Best Friend", chapter: "eng-essay", level: 0.4, description: "Write a composition on friendship." },
+  { id: "eng-essay-hobby", name: "Essay: My Hobby", chapter: "eng-essay", level: 0.42, description: "Write about a personal hobby." },
+  { id: "eng-essay-place", name: "Essay: Historical Place", chapter: "eng-essay", level: 0.46, description: "A visit to a historical place." },
+  { id: "eng-essay-edu", name: "Essay: Importance of Education", chapter: "eng-essay", level: 0.48, description: "Why education matters." },
+  { id: "eng-essay-pc", name: "Essay: Computer in Our Life", chapter: "eng-essay", level: 0.5, description: "Role of computers today." },
+  { id: "eng-app-sick", name: "Application: Sick Leave", chapter: "eng-letter", level: 0.36, description: "Write a sick leave application." },
+  { id: "eng-app-fee", name: "Application: Fee Concession", chapter: "eng-letter", level: 0.38, description: "Request fee concession." },
+  { id: "eng-app-leave", name: "Leave Application", chapter: "eng-letter", level: 0.34, description: "Formal leave application." },
+  { id: "eng-dialogue", name: "Dialogue Writing", chapter: "eng-dialogue", level: 0.44, description: "Write natural short dialogues." },
+  { id: "eng-story", name: "Story Writing", chapter: "eng-story", level: 0.52, description: "Write a short moral story." },
+  { id: "eng-translation", name: "Translation (Urdu → English)", chapter: "eng-translation", level: 0.56, description: "Translate Urdu sentences into English." },
+  { id: "eng-short-q", name: "Textbook Short Questions", chapter: "eng-textbook", level: 0.3, description: "Prepare short questions from the book." },
+  { id: "eng-summary", name: "Textbook Summaries", chapter: "eng-textbook", level: 0.54, description: "Summaries of textbook lessons." },
+
+  // ——— Urdu ———
+  { id: "urdu-tashreeh-poem", name: "تشریحِ نظمیں", chapter: "urdu-tashreeh", level: 0.35, description: "اہم نظموں کی تشریح۔" },
+  { id: "urdu-tashreeh-prose", name: "تشریحِ نثر", chapter: "urdu-tashreeh", level: 0.38, description: "اہم نثری اقتباسات کی تشریح۔" },
+  { id: "urdu-khulasa", name: "خلاصہ نویسی", chapter: "urdu-summary", level: 0.42, description: "متن کا مختصر خلاصہ لکھنا۔" },
+  { id: "urdu-mazmoon-taleem", name: "مضمون: تعلیم کی اہمیت", chapter: "urdu-essay", level: 0.45, description: "تعلیم کی اہمیت پر مضمون۔" },
+  { id: "urdu-mazmoon-waqt", name: "مضمون: وقت کی پابندی", chapter: "urdu-essay", level: 0.48, description: "وقت کی پابندی پر مضمون۔" },
+  { id: "urdu-mazmoon-mehnat", name: "مضمون: محنت کی عظمت", chapter: "urdu-essay", level: 0.5, description: "محنت کی عظمت پر مضمون۔" },
+  { id: "urdu-mazmoon-pc", name: "مضمون: کمپیوٹر کے فوائد", chapter: "urdu-essay", level: 0.52, description: "کمپیوٹر کے فوائد پر مضمون۔" },
+  { id: "urdu-darkhwast", name: "درخواست نویسی", chapter: "urdu-application", level: 0.4, description: "رسمي درخواستیں لکھنا۔" },
+  { id: "urdu-khat", name: "خط نویسی", chapter: "urdu-letter", level: 0.44, description: "ذاتی اور رسمی خطوط۔" },
+  { id: "urdu-mahaware", name: "محاورے", chapter: "urdu-idioms", level: 0.3, description: "محاوروں کا صحیح استعمال۔" },
+  { id: "urdu-amsal", name: "ضرب الامثال", chapter: "urdu-idioms", level: 0.32, description: "ضرب الامثال یاد کرنا۔" },
+  { id: "urdu-wahid-jama", name: "واحد جمع", chapter: "urdu-grammar", level: 0.12, description: "واحد اور جمع کی تبدیلی۔" },
+  { id: "urdu-muzakkar", name: "مذکر مؤنث", chapter: "urdu-grammar", level: 0.14, description: "مذکر اور مؤنث الفاظ۔" },
+  { id: "urdu-mutradif", name: "مترادفات و متضادات", chapter: "urdu-grammar", level: 0.22, description: "ہم معنی اور متضاد الفاظ۔" },
+  { id: "urdu-darsi", name: "درسی سوالات و جوابات", chapter: "urdu-textbook", level: 0.55, description: "کتاب کے تمام سوالات یاد کرنا۔" },
+
+  // ——— Islamiat ———
+  { id: "isl-iman", name: "ایمانیات", chapter: "isl-beliefs", level: 0.1, description: "اسلام کے بنیادی عقائد۔" },
+  { id: "isl-salah", name: "نماز کی اہمیت", chapter: "isl-ibadat", level: 0.25, description: "صلوٰۃ کی اہمیت اور فضائل۔" },
+  { id: "isl-saum", name: "روزہ", chapter: "isl-ibadat", level: 0.28, description: "صوم کے احکام اور فوائد۔" },
+  { id: "isl-zakat", name: "زکوٰۃ", chapter: "isl-ibadat", level: 0.3, description: "زکوٰۃ کی اہمیت۔" },
+  { id: "isl-hajj", name: "حج", chapter: "isl-ibadat", level: 0.32, description: "حج کے ارکان۔" },
+  { id: "isl-seerah", name: "سیرت النبی ﷺ", chapter: "isl-seerah", level: 0.4, description: "آپ ﷺ کی زندگی کے اہم واقعات۔" },
+  { id: "isl-akhlaq", name: "اسلامی اخلاقیات", chapter: "isl-akhlaq", level: 0.45, description: "اسلامی اخلاقی اقدار۔" },
+  { id: "isl-parents", name: "والدین کے حقوق", chapter: "isl-rights", level: 0.48, description: "حقوقِ والدین۔" },
+  { id: "isl-neighbors", name: "پڑوسیوں کے حقوق", chapter: "isl-rights", level: 0.5, description: "حقوقِ ہمسائیگی۔" },
+  { id: "isl-huqooq", name: "حقوق العباد", chapter: "isl-rights", level: 0.52, description: "بندوں کے حقوق۔" },
+  { id: "isl-ayat", name: "قرآنی آیات مع ترجمہ", chapter: "isl-quran-hadith", level: 0.35, description: "منتخب آیات اور ترجمہ یاد کرنا۔" },
+  { id: "isl-hadith", name: "احادیث مع ترجمہ", chapter: "isl-quran-hadith", level: 0.38, description: "منتخب احادیث اور ترجمہ۔" },
+  { id: "isl-daily", name: "اسلام اور روزمرہ زندگی", chapter: "isl-daily", level: 0.58, description: "اسلامی تعلیمات کا عملی اطلاق۔" },
+
+  // ——— Biology ———
+  { id: "bio-levels", name: "Levels of Organization", chapter: "bio-intro", level: 0.08, description: "From cell to biosphere." },
+  { id: "bio-intro-scope", name: "Introduction to Biology", chapter: "bio-intro", level: 0.05, description: "What biology studies." },
+  { id: "bio-method", name: "Scientific Method", chapter: "bio-problem", level: 0.15, description: "Steps to solve a biological problem." },
+  { id: "bio-classify", name: "Classification of Organisms", chapter: "bio-diversity", level: 0.28, description: "How living things are grouped." },
+  { id: "bio-biodiversity", name: "Importance of Biodiversity", chapter: "bio-diversity", level: 0.32, description: "Why biodiversity matters." },
+  { id: "bio-plant-cell", name: "Plant Cell", chapter: "bio-cells", level: 0.4, description: "Structure of a plant cell." },
+  { id: "bio-animal-cell", name: "Animal Cell", chapter: "bio-cells", level: 0.42, description: "Structure of an animal cell." },
+  { id: "bio-cell-vs", name: "Animal vs Plant Cell", chapter: "bio-cells", level: 0.48, description: "Compare plant and animal cells." },
+  { id: "bio-organelles", name: "Cell Organelles", chapter: "bio-cells", level: 0.5, description: "Functions of cell organelles." },
+  { id: "bio-tissues", name: "Types of Tissues", chapter: "bio-cells", level: 0.55, description: "Plant and animal tissues." },
+  { id: "bio-mitosis", name: "Mitosis", chapter: "bio-cycle", level: 0.62, description: "Stages of mitosis." },
+  { id: "bio-meiosis", name: "Meiosis", chapter: "bio-cycle", level: 0.68, description: "Stages of meiosis." },
+  { id: "bio-mito-meio", name: "Mitosis vs Meiosis", chapter: "bio-cycle", level: 0.74, description: "Compare mitosis and meiosis." },
+
+  // ——— Computer Science ———
+  { id: "cs-chars", name: "Characteristics of Computers", chapter: "cs-basics", level: 0.06, description: "Speed, accuracy, storage and more." },
+  { id: "cs-hw-sw", name: "Hardware vs Software", chapter: "cs-basics", level: 0.12, description: "Physical parts vs programs." },
+  { id: "cs-cpu", name: "CPU Components", chapter: "cs-systems", level: 0.28, description: "ALU, CU and registers." },
+  { id: "cs-memory", name: "Primary & Secondary Memory", chapter: "cs-storage", level: 0.35, description: "RAM, ROM and storage devices." },
+  { id: "cs-storage-dev", name: "Storage Devices", chapter: "cs-storage", level: 0.38, description: "HDD, SSD, USB and optical media." },
+  { id: "cs-input", name: "Input Devices", chapter: "cs-io", level: 0.22, description: "Keyboard, mouse, scanner, etc." },
+  { id: "cs-output", name: "Output Devices", chapter: "cs-io", level: 0.24, description: "Monitor, printer, speakers, etc." },
+  { id: "cs-os-fn", name: "Functions of OS", chapter: "cs-os", level: 0.48, description: "What an operating system does." },
+  { id: "cs-algo", name: "Algorithms", chapter: "cs-problem", level: 0.55, description: "Step-by-step problem solving." },
+  { id: "cs-flowchart", name: "Flowchart Symbols", chapter: "cs-flow", level: 0.62, description: "Standard flowchart symbols." },
+  { id: "cs-trace", name: "Flowchart Tracing", chapter: "cs-flow", level: 0.68, description: "Trace and dry-run flowcharts." },
+  { id: "cs-number", name: "Number System Basics", chapter: "cs-basics", level: 0.42, description: "Binary and decimal conversion." },
 ];
 
 export const EDGES: Edge[] = [
@@ -414,6 +578,86 @@ export const EDGES: Edge[] = [
   { topicId: "math-congruence", prerequisiteId: "math-reals-props", reason: "Congruence builds on geometric reasoning foundations" },
   { topicId: "math-tri-theorems", prerequisiteId: "math-congruence", reason: "Proofs use congruence criteria" },
   { topicId: "math-tri-construct", prerequisiteId: "math-congruence", reason: "Construction follows congruence rules" },
+
+  // English edges
+  { topicId: "eng-voice", prerequisiteId: "eng-tenses", reason: "Voice changes need tense knowledge" },
+  { topicId: "eng-narration", prerequisiteId: "eng-tenses", reason: "Narration depends on tense shifts" },
+  { topicId: "eng-prepositions", prerequisiteId: "eng-tenses", reason: "Grammar builds together" },
+  { topicId: "eng-essay-friend", prerequisiteId: "eng-tenses", reason: "Essays need correct grammar" },
+  { topicId: "eng-essay-hobby", prerequisiteId: "eng-tenses", reason: "Essays need correct grammar" },
+  { topicId: "eng-essay-place", prerequisiteId: "eng-tenses", reason: "Essays need correct grammar" },
+  { topicId: "eng-essay-edu", prerequisiteId: "eng-tenses", reason: "Essays need correct grammar" },
+  { topicId: "eng-essay-pc", prerequisiteId: "eng-tenses", reason: "Essays need correct grammar" },
+  { topicId: "eng-app-sick", prerequisiteId: "eng-tenses", reason: "Applications need formal grammar" },
+  { topicId: "eng-app-fee", prerequisiteId: "eng-tenses", reason: "Applications need formal grammar" },
+  { topicId: "eng-app-leave", prerequisiteId: "eng-tenses", reason: "Applications need formal grammar" },
+  { topicId: "eng-dialogue", prerequisiteId: "eng-tenses", reason: "Dialogues need natural tense use" },
+  { topicId: "eng-story", prerequisiteId: "eng-tenses", reason: "Stories need narrative tenses" },
+  { topicId: "eng-story", prerequisiteId: "eng-dialogue", reason: "Stories often include dialogue" },
+  { topicId: "eng-translation", prerequisiteId: "eng-tenses", reason: "Translation needs grammar accuracy" },
+  { topicId: "eng-translation", prerequisiteId: "eng-prepositions", reason: "Prepositions matter in translation" },
+  { topicId: "eng-comprehension", prerequisiteId: "eng-tenses", reason: "Reading needs language basics" },
+  { topicId: "eng-short-q", prerequisiteId: "eng-comprehension", reason: "Textbook answers need reading skill" },
+  { topicId: "eng-summary", prerequisiteId: "eng-short-q", reason: "Summaries build on lesson understanding" },
+
+  // Urdu edges
+  { topicId: "urdu-tashreeh-prose", prerequisiteId: "urdu-tashreeh-poem", reason: "تشریح کی مشق نظموں کے بعد نثر پر" },
+  { topicId: "urdu-khulasa", prerequisiteId: "urdu-tashreeh-prose", reason: "خلاصہ تشریح کی سمجھ کے بعد" },
+  { topicId: "urdu-mazmoon-taleem", prerequisiteId: "urdu-wahid-jama", reason: "مضمون کے لیے بنیادی گرامر" },
+  { topicId: "urdu-mazmoon-waqt", prerequisiteId: "urdu-mazmoon-taleem", reason: "مضمون نویسی کی مشق بڑھانا" },
+  { topicId: "urdu-mazmoon-mehnat", prerequisiteId: "urdu-mazmoon-waqt", reason: "مضامین کی ترتیب وار مشق" },
+  { topicId: "urdu-mazmoon-pc", prerequisiteId: "urdu-mazmoon-mehnat", reason: "مضامین کی ترتیب وار مشق" },
+  { topicId: "urdu-darkhwast", prerequisiteId: "urdu-wahid-jama", reason: "درخواست کے لیے درست زبان" },
+  { topicId: "urdu-khat", prerequisiteId: "urdu-darkhwast", reason: "خط نویسی درخواست سے ملتی جلتی ہے" },
+  { topicId: "urdu-muzakkar", prerequisiteId: "urdu-wahid-jama", reason: "گرامر کی بنیاد واحد جمع سے" },
+  { topicId: "urdu-mutradif", prerequisiteId: "urdu-muzakkar", reason: "الفاظ کا ذخیرہ گرامر کے بعد" },
+  { topicId: "urdu-amsal", prerequisiteId: "urdu-mahaware", reason: "ضرب الامثال محاوروں سے جڑی ہیں" },
+  { topicId: "urdu-darsi", prerequisiteId: "urdu-tashreeh-prose", reason: "درسی جوابات تشریح کے بعد" },
+  { topicId: "urdu-darsi", prerequisiteId: "urdu-khulasa", reason: "خلاصہ درسی تیاری کا حصہ" },
+
+  // Islamiat edges
+  { topicId: "isl-salah", prerequisiteId: "isl-iman", reason: "عبادات ایمان کے بعد" },
+  { topicId: "isl-saum", prerequisiteId: "isl-salah", reason: "عبادات کی ترتیب" },
+  { topicId: "isl-zakat", prerequisiteId: "isl-saum", reason: "عبادات کی ترتیب" },
+  { topicId: "isl-hajj", prerequisiteId: "isl-zakat", reason: "عبادات کی ترتیب" },
+  { topicId: "isl-seerah", prerequisiteId: "isl-iman", reason: "سیرت عقیدے کی روشنی میں" },
+  { topicId: "isl-ayat", prerequisiteId: "isl-iman", reason: "آیات ایمانیات سے جڑی ہیں" },
+  { topicId: "isl-hadith", prerequisiteId: "isl-ayat", reason: "احادیث آیات کے ساتھ یاد کریں" },
+  { topicId: "isl-akhlaq", prerequisiteId: "isl-seerah", reason: "اخلاق سیرت سے سیکھے جاتے ہیں" },
+  { topicId: "isl-parents", prerequisiteId: "isl-akhlaq", reason: "حقوق اخلاق کا عملی رخ" },
+  { topicId: "isl-neighbors", prerequisiteId: "isl-parents", reason: "حقوق العباد کی توسیع" },
+  { topicId: "isl-huqooq", prerequisiteId: "isl-neighbors", reason: "حقوق العباد کا مجموعی تصور" },
+  { topicId: "isl-daily", prerequisiteId: "isl-huqooq", reason: "روزمرہ اطلاق حقوق و اخلاق کے بعد" },
+  { topicId: "isl-daily", prerequisiteId: "isl-salah", reason: "نماز روزمرہ زندگی کا مرکز" },
+
+  // Biology edges
+  { topicId: "bio-levels", prerequisiteId: "bio-intro-scope", reason: "Organization levels need biology basics" },
+  { topicId: "bio-method", prerequisiteId: "bio-intro-scope", reason: "Scientific method is how biology works" },
+  { topicId: "bio-classify", prerequisiteId: "bio-levels", reason: "Classification uses levels of life" },
+  { topicId: "bio-biodiversity", prerequisiteId: "bio-classify", reason: "Biodiversity builds on classification" },
+  { topicId: "bio-plant-cell", prerequisiteId: "bio-levels", reason: "Cells are a basic level of life" },
+  { topicId: "bio-animal-cell", prerequisiteId: "bio-levels", reason: "Cells are a basic level of life" },
+  { topicId: "bio-cell-vs", prerequisiteId: "bio-plant-cell", reason: "Compare after knowing plant cell" },
+  { topicId: "bio-cell-vs", prerequisiteId: "bio-animal-cell", reason: "Compare after knowing animal cell" },
+  { topicId: "bio-organelles", prerequisiteId: "bio-cell-vs", reason: "Organelles after cell comparison" },
+  { topicId: "bio-tissues", prerequisiteId: "bio-organelles", reason: "Tissues are groups of cells" },
+  { topicId: "bio-mitosis", prerequisiteId: "bio-tissues", reason: "Cell division after cell/tissue study" },
+  { topicId: "bio-meiosis", prerequisiteId: "bio-mitosis", reason: "Meiosis compared after mitosis" },
+  { topicId: "bio-mito-meio", prerequisiteId: "bio-meiosis", reason: "Full comparison needs both processes" },
+
+  // Computer edges
+  { topicId: "cs-hw-sw", prerequisiteId: "cs-chars", reason: "Hardware/software after computer basics" },
+  { topicId: "cs-input", prerequisiteId: "cs-hw-sw", reason: "I/O devices are hardware" },
+  { topicId: "cs-output", prerequisiteId: "cs-input", reason: "Output pairs with input devices" },
+  { topicId: "cs-cpu", prerequisiteId: "cs-hw-sw", reason: "CPU is core hardware" },
+  { topicId: "cs-memory", prerequisiteId: "cs-cpu", reason: "Memory works with the CPU" },
+  { topicId: "cs-storage-dev", prerequisiteId: "cs-memory", reason: "Storage extends memory concepts" },
+  { topicId: "cs-number", prerequisiteId: "cs-hw-sw", reason: "Number systems underpin computing" },
+  { topicId: "cs-os-fn", prerequisiteId: "cs-hw-sw", reason: "OS manages hardware and software" },
+  { topicId: "cs-os-fn", prerequisiteId: "cs-memory", reason: "OS manages memory" },
+  { topicId: "cs-algo", prerequisiteId: "cs-chars", reason: "Algorithms are how computers solve problems" },
+  { topicId: "cs-flowchart", prerequisiteId: "cs-algo", reason: "Flowcharts visualize algorithms" },
+  { topicId: "cs-trace", prerequisiteId: "cs-flowchart", reason: "Tracing needs flowchart literacy" },
 ];
 
 export function chapterColor(id: ChapterId) {
