@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+  --pink-banner: #f6d6fd;
+  --blue-primary: #004ff8;
+  --logo: #1a1040;
+  --text-banner: #2d2d2d;
+  --icon-purple: #6b4e9e;
+  --border-nav: #e5e5e5;
+  --text-login: #0a0a0a;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+html,
+body {
+  overscroll-behavior-y: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), Inter, system-ui, sans-serif;
+}
+
+/* Curriculum map: lock page scroll, keep 3D gestures buttery */
+.curriculum-shell {
+  touch-action: none;
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.curriculum-shell canvas {
+  touch-action: none;
+  outline: none;
+  cursor: grab;
+}
+
+.curriculum-shell canvas:active {
+  cursor: grabbing;
+}
+
+@media (max-width: 767px) {
+  .curriculum-shell {
+    /* let legend scroll without trapping the whole page */
+    touch-action: manipulation;
+  }
+
+  .curriculum-shell canvas {
+    /* one-finger rotate still works via camera-controls; page won't bounce */
+    touch-action: none;
+  }
+}
+
+.curriculum-panel {
+  transition:
+    opacity 0.45s var(--ease-out-expo),
+    transform 0.45s var(--ease-out-expo),
+    filter 0.45s var(--ease-out-expo);
+  will-change: opacity, transform;
+}
+
+.curriculum-legend-row {
+  transition:
+    opacity 0.35s var(--ease-out-quart),
+    background-color 0.25s ease,
+    transform 0.25s var(--ease-out-quart);
+}
+
+button,
+a {
+  transition:
+    transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+@media (hover: hover) {
+  button:hover,
+  a:hover {
+    opacity: 0.92;
+  }
+}
+
+button:active {
+  transform: scale(0.98);
+}
