@@ -10,6 +10,7 @@ import {
   TOPICS,
   chapterColor,
   type ChapterId,
+  type GradeId,
   type SubjectId,
   type Topic,
 } from "@/data/physicsCurriculum";
@@ -68,10 +69,19 @@ const SUBJECTS: { id: SubjectId; label: string; blurb: string; accent: string }[
   { id: "computer", label: "Computer Science", blurb: "Hardware, OS, flowcharts & more", accent: "#38BDF8" },
 ];
 
-function enabledForSubject(subject: SubjectId): Record<ChapterId, boolean> {
+const GRADES: { id: GradeId; label: string; blurb: string }[] = [
+  { id: "9", label: "Class 9", blurb: "Karachi Board · Science group map" },
+  { id: "10", label: "Class 10", blurb: "Karachi Board · Science group map" },
+];
+
+function enabledForSubject(subject: SubjectId, grade: GradeId): Record<ChapterId, boolean> {
   return Object.fromEntries(
-    CHAPTERS.map((c) => [c.id, c.subject === subject]),
+    CHAPTERS.map((c) => [c.id, c.subject === subject && c.grade === grade]),
   ) as Record<ChapterId, boolean>;
+}
+
+function allOff(): Record<ChapterId, boolean> {
+  return Object.fromEntries(CHAPTERS.map((c) => [c.id, false])) as Record<ChapterId, boolean>;
 }
 
 export function CurriculumGraph() {
@@ -81,26 +91,34 @@ export function CurriculumGraph() {
     setSelected: (id: string | null) => void;
   } | null>(null);
 
+  const [activeGrade, setActiveGrade] = useState<GradeId | null>(null);
   const [activeSubject, setActiveSubject] = useState<SubjectId | null>(null);
-  const [enabled, setEnabled] = useState<Record<ChapterId, boolean>>(
-    () => Object.fromEntries(CHAPTERS.map((c) => [c.id, false])) as Record<ChapterId, boolean>,
-  );
+  const [enabled, setEnabled] = useState<Record<ChapterId, boolean>>(allOff);
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
   const nodes = useMemo(() => buildLayout(), []);
   const byId = useMemo(() => new Map(nodes.map((n) => [n.id, n])), [nodes]);
 
+  const gradeSubjects = useMemo(() => {
+    if (!activeGrade) return [];
+    const ids = new Set(
+      CHAPTERS.filter((c) => c.grade === activeGrade).map((c) => c.subject),
+    );
+    return SUBJECTS.filter((s) => ids.has(s.id));
+  }, [activeGrade]);
+
   const subjectChapters = useMemo(
-    () => (activeSubject ? CHAPTERS.filter((c) => c.subject === activeSubject) : []),
-    [activeSubject],
-  );
-  const subjectTopics = useMemo(
     () =>
-      activeSubject
-        ? TOPICS.filter((t) => CHAPTERS.find((c) => c.id === t.chapter)?.subject === activeSubject)
+      activeSubject && activeGrade
+        ? CHAPTERS.filter((c) => c.subject === activeSubject && c.grade === activeGrade)
         : [],
-    [activeSubject],
+    [activeSubject, activeGrade],
   );
+  const subjectTopics = useMemo(() => {
+    if (!activeSubject || !activeGrade) return [];
+    const chapterIds = new Set(subjectChapters.map((c) => c.id));
+    return TOPICS.filter((t) => chapterIds.has(t.chapter));
+  }, [activeSubject, activeGrade, subjectChapters]);
   const subjectEdges = useMemo(() => {
     const ids = new Set(subjectTopics.map((t) => t.id));
     return EDGES.filter((e) => ids.has(e.topicId) && ids.has(e.prerequisiteId));
@@ -120,15 +138,30 @@ export function CurriculumGraph() {
       }))
     : [];
 
+  function openGrade(grade: GradeId) {
+    setActiveGrade(grade);
+    setActiveSubject(null);
+    setEnabled(allOff());
+    setSelectedId(null);
+  }
+
   function openSubject(subject: SubjectId) {
+    if (!activeGrade) return;
     setActiveSubject(subject);
-    setEnabled(enabledForSubject(subject));
+    setEnabled(enabledForSubject(subject, activeGrade));
     setSelectedId(null);
   }
 
   function backToSubjects() {
     setActiveSubject(null);
-    setEnabled(Object.fromEntries(CHAPTERS.map((c) => [c.id, false])) as Record<ChapterId, boolean>);
+    setEnabled(allOff());
+    setSelectedId(null);
+  }
+
+  function backToClasses() {
+    setActiveGrade(null);
+    setActiveSubject(null);
+    setEnabled(allOff());
     setSelectedId(null);
   }
 
@@ -498,6 +531,7 @@ export function CurriculumGraph() {
   const totalEdges = subjectEdges.length;
   const visibleCount = subjectTopics.filter((t) => enabled[t.chapter]).length;
   const subjectMeta = SUBJECTS.find((s) => s.id === activeSubject);
+  const gradeMeta = GRADES.find((g) => g.id === activeGrade);
 
   return (
     <div
@@ -506,11 +540,11 @@ export function CurriculumGraph() {
     >
       <div ref={mountRef} className="absolute inset-0 touch-none" />
 
-      {/* Step 1 — pick a subject */}
+      {/* Step 1 — pick a class */}
       <AnimatePresence>
-        {!activeSubject && (
+        {!activeGrade && (
           <motion.div
-            key="subject-picker"
+            key="class-picker"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, y: -12 }}
@@ -520,16 +554,74 @@ export function CurriculumGraph() {
             <div className="w-full max-w-lg">
               <p className="mb-3 text-[13px] font-semibold tracking-[0.2em]">JARVES</p>
               <h1 className="font-serif text-4xl leading-tight tracking-[-0.02em] md:text-5xl">
+                Pick a class<span className="text-[#e85d4c]">.</span>
+              </h1>
+              <p className="mt-3 text-[14px] text-[#a3a3a3]">
+                Karachi Board (BSEK) — then choose a subject map.
+              </p>
+              <div className="mt-8 grid gap-3">
+                {GRADES.map((g) => {
+                  const topicCount = TOPICS.filter((t) => {
+                    const ch = CHAPTERS.find((c) => c.id === t.chapter);
+                    return ch?.grade === g.id;
+                  }).length;
+                  return (
+                    <button
+                      key={g.id}
+                      type="button"
+                      onClick={() => openGrade(g.id)}
+                      className="group flex items-center justify-between rounded-2xl border border-[#2a2a2a] bg-[#121212] px-5 py-4 text-left transition hover:border-[#444] hover:bg-[#171717]"
+                    >
+                      <div>
+                        <p className="text-lg font-medium">{g.label}</p>
+                        <p className="text-[13px] text-[#888]">{g.blurb}</p>
+                      </div>
+                      <span className="text-[12px] text-[#666] transition group-hover:text-[#aaa]">
+                        {topicCount} topics →
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Step 2 — pick a subject */}
+      <AnimatePresence>
+        {activeGrade && !activeSubject && (
+          <motion.div
+            key="subject-picker"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.35, ease }}
+            className="absolute inset-0 z-20 flex items-start justify-center overflow-y-auto bg-[#0a0a0a]/92 p-5 backdrop-blur-sm sm:items-center sm:p-6"
+          >
+            <div className="w-full max-w-lg">
+              <div className="mb-3 flex items-center gap-3">
+                <p className="text-[13px] font-semibold tracking-[0.2em]">JARVES</p>
+                <button
+                  type="button"
+                  onClick={backToClasses}
+                  className="rounded-md border border-[#333] px-2.5 py-1 text-[11px] tracking-wide text-[#aaa] transition hover:border-[#555] hover:text-white"
+                >
+                  ← Classes
+                </button>
+              </div>
+              <h1 className="font-serif text-4xl leading-tight tracking-[-0.02em] md:text-5xl">
                 Pick a subject<span className="text-[#e85d4c]">.</span>
               </h1>
               <p className="mt-3 text-[14px] text-[#a3a3a3]">
-                Class 9 · Karachi Board — open one map at a time.
+                {gradeMeta?.label} · Karachi Board — open one map at a time.
               </p>
-              <div className="mt-8 grid gap-3">
-                {SUBJECTS.map((s) => {
-                  const count = TOPICS.filter(
-                    (t) => CHAPTERS.find((c) => c.id === t.chapter)?.subject === s.id,
-                  ).length;
+              <div className="mt-8 grid gap-3 pb-8">
+                {gradeSubjects.map((s) => {
+                  const count = TOPICS.filter((t) => {
+                    const ch = CHAPTERS.find((c) => c.id === t.chapter);
+                    return ch?.subject === s.id && ch.grade === activeGrade;
+                  }).length;
                   return (
                     <button
                       key={s.id}
@@ -559,9 +651,9 @@ export function CurriculumGraph() {
         )}
       </AnimatePresence>
 
-      {/* Step 2 — subject map UI */}
+      {/* Step 3 — subject map UI */}
       <AnimatePresence>
-        {activeSubject && (
+        {activeGrade && activeSubject && (
           <motion.div
             key="subject-map-ui"
             initial={{ opacity: 0, y: 12 }}
@@ -572,7 +664,7 @@ export function CurriculumGraph() {
           >
             {/* Top copy */}
             <div className="shrink-0 p-5 md:max-w-[440px] md:p-10">
-              <div className="mb-4 flex items-center gap-3 md:mb-10 md:gap-4">
+              <div className="mb-4 flex flex-wrap items-center gap-3 md:mb-10 md:gap-4">
                 <p className="text-[13px] font-semibold tracking-[0.2em] md:text-[15px]">JARVES</p>
                 <button
                   type="button"
@@ -581,9 +673,16 @@ export function CurriculumGraph() {
                 >
                   ← Subjects
                 </button>
+                <button
+                  type="button"
+                  onClick={backToClasses}
+                  className="pointer-events-auto rounded-md border border-[#333] px-2.5 py-1 text-[11px] tracking-wide text-[#aaa] transition hover:border-[#555] hover:text-white"
+                >
+                  ← Classes
+                </button>
               </div>
               <h1 className="font-serif text-[1.85rem] leading-[1.12] tracking-[-0.02em] sm:text-[2.2rem] md:text-[2.75rem]">
-                Class 9 {subjectMeta?.label}
+                {gradeMeta?.label} {subjectMeta?.label}
                 <span className="text-[#e85d4c]">.</span>
               </h1>
               <p className="mt-3 hidden text-[14px] leading-relaxed text-[#a3a3a3] md:mt-5 md:block">
@@ -601,7 +700,7 @@ export function CurriculumGraph() {
                   className="rounded-lg border border-[#333] bg-[#141414] px-3 py-1.5 text-[12px] text-[#ddd] md:px-3.5 md:py-2 md:text-[13px]"
                   style={{ borderColor: `${subjectMeta?.accent}55` }}
                 >
-                  {subjectMeta?.label?.toUpperCase()} · BSEK
+                  {gradeMeta?.label?.toUpperCase()} · {subjectMeta?.label?.toUpperCase()} · BSEK
                 </span>
               </div>
             </div>
@@ -644,7 +743,7 @@ export function CurriculumGraph() {
                 </ul>
               </div>
               <p className="mt-2 text-[12px] font-medium leading-snug text-white md:hidden">
-                The open map of Class 9 {subjectMeta?.label}, built for Karachi Board.
+                The open map of {gradeMeta?.label} {subjectMeta?.label}, built for Karachi Board.
               </p>
             </div>
           </motion.div>
@@ -652,7 +751,7 @@ export function CurriculumGraph() {
       </AnimatePresence>
 
       <AnimatePresence mode="wait">
-        {activeSubject && selected && (
+        {activeGrade && activeSubject && selected && (
           <motion.div
             key={selected.id}
             initial={{ opacity: 0, y: 24 }}
@@ -723,7 +822,7 @@ export function CurriculumGraph() {
         )}
       </AnimatePresence>
 
-      {activeSubject && (
+      {activeGrade && activeSubject && (
         <p className="pointer-events-none absolute right-4 bottom-[calc(34vh+0.35rem)] z-10 hidden text-[10px] text-[#666] sm:right-8 md:bottom-6 md:block md:text-[11px]">
           Drag to spin · Scroll to zoom · Tap a dot · Double-tap to reset
         </p>

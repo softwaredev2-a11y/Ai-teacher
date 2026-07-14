@@ -1,3 +1,5 @@
+export type GradeId = "9" | "10";
+
 export type SubjectId =
   | "physics"
   | "chemistry"
@@ -68,7 +70,71 @@ export type ChapterId =
   | "cs-io"
   | "cs-os"
   | "cs-problem"
-  | "cs-flow";
+  | "cs-flow"
+  | "c10-math-quadratic"
+  | "c10-math-theory"
+  | "c10-math-variations"
+  | "c10-math-partial"
+  | "c10-math-sets"
+  | "c10-math-trig"
+  | "c10-math-geometry"
+  | "c10-phy-shm"
+  | "c10-phy-sound"
+  | "c10-phy-optics"
+  | "c10-phy-electrostatics"
+  | "c10-phy-current"
+  | "c10-phy-em"
+  | "c10-phy-electronics"
+  | "c10-phy-ict"
+  | "c10-phy-nuclear"
+  | "c10-chem-eq"
+  | "c10-chem-acids"
+  | "c10-chem-organic"
+  | "c10-chem-hydro"
+  | "c10-chem-biochem"
+  | "c10-chem-env"
+  | "c10-chem-industry"
+  | "c10-bio-gas"
+  | "c10-bio-homeo"
+  | "c10-bio-coord"
+  | "c10-bio-repro"
+  | "c10-bio-inherit"
+  | "c10-bio-env"
+  | "c10-bio-biotech"
+  | "c10-cs-prog"
+  | "c10-cs-c"
+  | "c10-cs-vars"
+  | "c10-cs-ops"
+  | "c10-cs-decision"
+  | "c10-cs-loops"
+  | "c10-cs-functions"
+  | "c10-cs-arrays"
+  | "c10-cs-files"
+  | "c10-cs-db"
+  | "c10-eng-grammar"
+  | "c10-eng-essay"
+  | "c10-eng-letter"
+  | "c10-eng-dialogue"
+  | "c10-eng-story"
+  | "c10-eng-reading"
+  | "c10-eng-translation"
+  | "c10-eng-textbook"
+  | "c10-urdu-tashreeh"
+  | "c10-urdu-summary"
+  | "c10-urdu-essay"
+  | "c10-urdu-application"
+  | "c10-urdu-letter"
+  | "c10-urdu-idioms"
+  | "c10-urdu-grammar"
+  | "c10-urdu-textbook"
+  | "c10-isl-quran"
+  | "c10-isl-hadith"
+  | "c10-isl-seerah"
+  | "c10-isl-morals"
+  | "c10-isl-rights"
+  | "c10-isl-pillars"
+  | "c10-isl-short";
+
 
 export type Topic = {
   id: string;
@@ -91,73 +157,138 @@ export const CHAPTERS: {
   color: string;
   subject: SubjectId;
   priority: "high" | "medium";
+  grade: GradeId;
 }[] = [
-  { id: "kinematics", name: "Kinematics", color: "#4F8CFF", subject: "physics", priority: "high" },
-  { id: "dynamics", name: "Dynamics", color: "#7EB8D8", subject: "physics", priority: "high" },
-  { id: "energy", name: "Work and Energy", color: "#5BA3A3", subject: "physics", priority: "high" },
-  { id: "measurement", name: "Measurement", color: "#E8C547", subject: "physics", priority: "high" },
-  { id: "turning", name: "Turning Effect", color: "#E89A5C", subject: "physics", priority: "high" },
-  { id: "matter", name: "Properties of Matter", color: "#E07A7A", subject: "physics", priority: "medium" },
-  { id: "thermal", name: "Thermal Properties", color: "#C96B8A", subject: "physics", priority: "medium" },
-  { id: "heat", name: "Transfer of Heat", color: "#A85C9A", subject: "physics", priority: "medium" },
-  { id: "circuits", name: "Electric Circuits", color: "#8B7AE0", subject: "physics", priority: "medium" },
-  { id: "magnetism", name: "Magnetism", color: "#6B8AE0", subject: "physics", priority: "medium" },
-  { id: "chem-molecules", name: "Structure of Molecules", color: "#7CDA6A", subject: "chemistry", priority: "high" },
-  { id: "chem-atomic", name: "Atomic Structure", color: "#2DD4BF", subject: "chemistry", priority: "high" },
-  { id: "chem-periodic", name: "Periodic Table", color: "#34D399", subject: "chemistry", priority: "high" },
-  { id: "chem-fundamentals", name: "Fundamentals of Chemistry", color: "#A3E635", subject: "chemistry", priority: "high" },
-  { id: "chem-solutions", name: "Solutions", color: "#14B8A6", subject: "chemistry", priority: "high" },
-  { id: "chem-states", name: "Physical States of Matter", color: "#84CC16", subject: "chemistry", priority: "high" },
+  { id: "kinematics", name: "Kinematics", color: "#4F8CFF", subject: "physics", priority: "high", grade: "9" },
+  { id: "dynamics", name: "Dynamics", color: "#7EB8D8", subject: "physics", priority: "high", grade: "9" },
+  { id: "energy", name: "Work and Energy", color: "#5BA3A3", subject: "physics", priority: "high", grade: "9" },
+  { id: "measurement", name: "Measurement", color: "#E8C547", subject: "physics", priority: "high", grade: "9" },
+  { id: "turning", name: "Turning Effect", color: "#E89A5C", subject: "physics", priority: "high", grade: "9" },
+  { id: "matter", name: "Properties of Matter", color: "#E07A7A", subject: "physics", priority: "medium", grade: "9" },
+  { id: "thermal", name: "Thermal Properties", color: "#C96B8A", subject: "physics", priority: "medium", grade: "9" },
+  { id: "heat", name: "Transfer of Heat", color: "#A85C9A", subject: "physics", priority: "medium", grade: "9" },
+  { id: "circuits", name: "Electric Circuits", color: "#8B7AE0", subject: "physics", priority: "medium", grade: "9" },
+  { id: "magnetism", name: "Magnetism", color: "#6B8AE0", subject: "physics", priority: "medium", grade: "9" },
+  { id: "chem-molecules", name: "Structure of Molecules", color: "#7CDA6A", subject: "chemistry", priority: "high", grade: "9" },
+  { id: "chem-atomic", name: "Atomic Structure", color: "#2DD4BF", subject: "chemistry", priority: "high", grade: "9" },
+  { id: "chem-periodic", name: "Periodic Table", color: "#34D399", subject: "chemistry", priority: "high", grade: "9" },
+  { id: "chem-fundamentals", name: "Fundamentals of Chemistry", color: "#A3E635", subject: "chemistry", priority: "high", grade: "9" },
+  { id: "chem-solutions", name: "Solutions", color: "#14B8A6", subject: "chemistry", priority: "high", grade: "9" },
+  { id: "chem-states", name: "Physical States of Matter", color: "#84CC16", subject: "chemistry", priority: "high", grade: "9" },
   // Maths — highest priority board units
-  { id: "math-factor", name: "Factorization", color: "#F472B6", subject: "maths", priority: "high" },
-  { id: "math-linear", name: "Linear Equations & Inequalities", color: "#FB7185", subject: "maths", priority: "high" },
-  { id: "math-fractions", name: "Algebraic Manipulation", color: "#F9A8D4", subject: "maths", priority: "high" },
-  { id: "math-triangles", name: "Congruent Triangles", color: "#E879F9", subject: "maths", priority: "high" },
-  { id: "math-algebra", name: "Algebraic Expressions", color: "#C084FC", subject: "maths", priority: "high" },
-  { id: "math-logs", name: "Logarithms", color: "#A78BFA", subject: "maths", priority: "high" },
-  { id: "math-graphs", name: "Linear Graphs", color: "#818CF8", subject: "maths", priority: "high" },
-  { id: "math-reals", name: "Real & Radical Numbers", color: "#FBBF24", subject: "maths", priority: "high" },
-  { id: "math-sets", name: "Sets", color: "#F59E0B", subject: "maths", priority: "high" },
+  { id: "math-factor", name: "Factorization", color: "#F472B6", subject: "maths", priority: "high", grade: "9" },
+  { id: "math-linear", name: "Linear Equations & Inequalities", color: "#FB7185", subject: "maths", priority: "high", grade: "9" },
+  { id: "math-fractions", name: "Algebraic Manipulation", color: "#F9A8D4", subject: "maths", priority: "high", grade: "9" },
+  { id: "math-triangles", name: "Congruent Triangles", color: "#E879F9", subject: "maths", priority: "high", grade: "9" },
+  { id: "math-algebra", name: "Algebraic Expressions", color: "#C084FC", subject: "maths", priority: "high", grade: "9" },
+  { id: "math-logs", name: "Logarithms", color: "#A78BFA", subject: "maths", priority: "high", grade: "9" },
+  { id: "math-graphs", name: "Linear Graphs", color: "#818CF8", subject: "maths", priority: "high", grade: "9" },
+  { id: "math-reals", name: "Real & Radical Numbers", color: "#FBBF24", subject: "maths", priority: "high", grade: "9" },
+  { id: "math-sets", name: "Sets", color: "#F59E0B", subject: "maths", priority: "high", grade: "9" },
   // English
-  { id: "eng-grammar", name: "Grammar", color: "#F87171", subject: "english", priority: "high" },
-  { id: "eng-essay", name: "Essay Writing", color: "#FB923C", subject: "english", priority: "high" },
-  { id: "eng-letter", name: "Letter & Application", color: "#FDBA74", subject: "english", priority: "high" },
-  { id: "eng-reading", name: "Reading Comprehension", color: "#EF4444", subject: "english", priority: "high" },
-  { id: "eng-dialogue", name: "Dialogue Writing", color: "#FCA5A5", subject: "english", priority: "high" },
-  { id: "eng-story", name: "Story Writing", color: "#F97316", subject: "english", priority: "high" },
-  { id: "eng-translation", name: "Translation", color: "#EA580C", subject: "english", priority: "high" },
-  { id: "eng-textbook", name: "Textbook Exercises", color: "#DC2626", subject: "english", priority: "high" },
+  { id: "eng-grammar", name: "Grammar", color: "#F87171", subject: "english", priority: "high", grade: "9" },
+  { id: "eng-essay", name: "Essay Writing", color: "#FB923C", subject: "english", priority: "high", grade: "9" },
+  { id: "eng-letter", name: "Letter & Application", color: "#FDBA74", subject: "english", priority: "high", grade: "9" },
+  { id: "eng-reading", name: "Reading Comprehension", color: "#EF4444", subject: "english", priority: "high", grade: "9" },
+  { id: "eng-dialogue", name: "Dialogue Writing", color: "#FCA5A5", subject: "english", priority: "high", grade: "9" },
+  { id: "eng-story", name: "Story Writing", color: "#F97316", subject: "english", priority: "high", grade: "9" },
+  { id: "eng-translation", name: "Translation", color: "#EA580C", subject: "english", priority: "high", grade: "9" },
+  { id: "eng-textbook", name: "Textbook Exercises", color: "#DC2626", subject: "english", priority: "high", grade: "9" },
   // Urdu
-  { id: "urdu-essay", name: "مضمون نویسی", color: "#E879F9", subject: "urdu", priority: "high" },
-  { id: "urdu-application", name: "درخواست نویسی", color: "#D946EF", subject: "urdu", priority: "high" },
-  { id: "urdu-letter", name: "خط نویسی", color: "#C026D3", subject: "urdu", priority: "high" },
-  { id: "urdu-tashreeh", name: "تشریح", color: "#A855F7", subject: "urdu", priority: "high" },
-  { id: "urdu-summary", name: "خلاصہ نویسی", color: "#9333EA", subject: "urdu", priority: "high" },
-  { id: "urdu-idioms", name: "محاورے و ضرب الامثال", color: "#7E22CE", subject: "urdu", priority: "high" },
-  { id: "urdu-grammar", name: "اردو گرامر", color: "#6B21A8", subject: "urdu", priority: "high" },
-  { id: "urdu-textbook", name: "درسی سوالات", color: "#581C87", subject: "urdu", priority: "high" },
+  { id: "urdu-essay", name: "مضمون نویسی", color: "#E879F9", subject: "urdu", priority: "high", grade: "9" },
+  { id: "urdu-application", name: "درخواست نویسی", color: "#D946EF", subject: "urdu", priority: "high", grade: "9" },
+  { id: "urdu-letter", name: "خط نویسی", color: "#C026D3", subject: "urdu", priority: "high", grade: "9" },
+  { id: "urdu-tashreeh", name: "تشریح", color: "#A855F7", subject: "urdu", priority: "high", grade: "9" },
+  { id: "urdu-summary", name: "خلاصہ نویسی", color: "#9333EA", subject: "urdu", priority: "high", grade: "9" },
+  { id: "urdu-idioms", name: "محاورے و ضرب الامثال", color: "#7E22CE", subject: "urdu", priority: "high", grade: "9" },
+  { id: "urdu-grammar", name: "اردو گرامر", color: "#6B21A8", subject: "urdu", priority: "high", grade: "9" },
+  { id: "urdu-textbook", name: "درسی سوالات", color: "#581C87", subject: "urdu", priority: "high", grade: "9" },
   // Islamiat
-  { id: "isl-beliefs", name: "ایمانیات", color: "#22C55E", subject: "islamiat", priority: "high" },
-  { id: "isl-ibadat", name: "عبادات", color: "#16A34A", subject: "islamiat", priority: "high" },
-  { id: "isl-seerah", name: "سیرت النبی ﷺ", color: "#15803D", subject: "islamiat", priority: "high" },
-  { id: "isl-akhlaq", name: "اخلاقیات و معاشرت", color: "#4ADE80", subject: "islamiat", priority: "high" },
-  { id: "isl-rights", name: "حقوق العباد", color: "#86EFAC", subject: "islamiat", priority: "high" },
-  { id: "isl-quran-hadith", name: "آیات و احادیث", color: "#BBF7D0", subject: "islamiat", priority: "high" },
-  { id: "isl-daily", name: "اسلامی تعلیمات", color: "#14532D", subject: "islamiat", priority: "high" },
+  { id: "isl-beliefs", name: "ایمانیات", color: "#22C55E", subject: "islamiat", priority: "high", grade: "9" },
+  { id: "isl-ibadat", name: "عبادات", color: "#16A34A", subject: "islamiat", priority: "high", grade: "9" },
+  { id: "isl-seerah", name: "سیرت النبی ﷺ", color: "#15803D", subject: "islamiat", priority: "high", grade: "9" },
+  { id: "isl-akhlaq", name: "اخلاقیات و معاشرت", color: "#4ADE80", subject: "islamiat", priority: "high", grade: "9" },
+  { id: "isl-rights", name: "حقوق العباد", color: "#86EFAC", subject: "islamiat", priority: "high", grade: "9" },
+  { id: "isl-quran-hadith", name: "آیات و احادیث", color: "#BBF7D0", subject: "islamiat", priority: "high", grade: "9" },
+  { id: "isl-daily", name: "اسلامی تعلیمات", color: "#14532D", subject: "islamiat", priority: "high", grade: "9" },
   // Biology
-  { id: "bio-intro", name: "Introduction to Biology", color: "#34D399", subject: "biology", priority: "high" },
-  { id: "bio-problem", name: "Solving a Biological Problem", color: "#10B981", subject: "biology", priority: "high" },
-  { id: "bio-diversity", name: "Biodiversity", color: "#059669", subject: "biology", priority: "high" },
-  { id: "bio-cells", name: "Cells and Tissues", color: "#047857", subject: "biology", priority: "high" },
-  { id: "bio-cycle", name: "Cell Cycle", color: "#065F46", subject: "biology", priority: "high" },
+  { id: "bio-intro", name: "Introduction to Biology", color: "#34D399", subject: "biology", priority: "high", grade: "9" },
+  { id: "bio-problem", name: "Solving a Biological Problem", color: "#10B981", subject: "biology", priority: "high", grade: "9" },
+  { id: "bio-diversity", name: "Biodiversity", color: "#059669", subject: "biology", priority: "high", grade: "9" },
+  { id: "bio-cells", name: "Cells and Tissues", color: "#047857", subject: "biology", priority: "high", grade: "9" },
+  { id: "bio-cycle", name: "Cell Cycle", color: "#065F46", subject: "biology", priority: "high", grade: "9" },
   // Computer Science
-  { id: "cs-basics", name: "Basics of IT", color: "#38BDF8", subject: "computer", priority: "high" },
-  { id: "cs-systems", name: "Computer Systems", color: "#0EA5E9", subject: "computer", priority: "high" },
-  { id: "cs-storage", name: "Storage Devices", color: "#0284C7", subject: "computer", priority: "high" },
-  { id: "cs-io", name: "Input & Output Devices", color: "#0369A1", subject: "computer", priority: "high" },
-  { id: "cs-os", name: "Operating Systems", color: "#7DD3FC", subject: "computer", priority: "high" },
-  { id: "cs-problem", name: "Problem Solving", color: "#BAE6FD", subject: "computer", priority: "high" },
-  { id: "cs-flow", name: "Flowcharts & Algorithms", color: "#075985", subject: "computer", priority: "high" },
+  { id: "cs-basics", name: "Basics of IT", color: "#38BDF8", subject: "computer", priority: "high", grade: "9" },
+  { id: "cs-systems", name: "Computer Systems", color: "#0EA5E9", subject: "computer", priority: "high", grade: "9" },
+  { id: "cs-storage", name: "Storage Devices", color: "#0284C7", subject: "computer", priority: "high", grade: "9" },
+  { id: "cs-io", name: "Input & Output Devices", color: "#0369A1", subject: "computer", priority: "high", grade: "9" },
+  { id: "cs-os", name: "Operating Systems", color: "#7DD3FC", subject: "computer", priority: "high", grade: "9" },
+  { id: "cs-problem", name: "Problem Solving", color: "#BAE6FD", subject: "computer", priority: "high", grade: "9" },
+  { id: "cs-flow", name: "Flowcharts & Algorithms", color: "#075985", subject: "computer", priority: "high", grade: "9" },
+  // ——— Class 10 ———
+  { id: "c10-math-quadratic", name: "Quadratic Equations", color: "#F472B6", subject: "maths", priority: "high", grade: "10" },
+  { id: "c10-math-theory", name: "Theory of Quadratic Equations", color: "#FB7185", subject: "maths", priority: "high", grade: "10" },
+  { id: "c10-math-variations", name: "Variations", color: "#F9A8D4", subject: "maths", priority: "high", grade: "10" },
+  { id: "c10-math-partial", name: "Partial Fractions", color: "#E879F9", subject: "maths", priority: "high", grade: "10" },
+  { id: "c10-math-sets", name: "Sets and Functions", color: "#C084FC", subject: "maths", priority: "high", grade: "10" },
+  { id: "c10-math-trig", name: "Trigonometry", color: "#A78BFA", subject: "maths", priority: "high", grade: "10" },
+  { id: "c10-math-geometry", name: "Practical Geometry", color: "#818CF8", subject: "maths", priority: "high", grade: "10" },
+  { id: "c10-phy-shm", name: "SHM & Waves", color: "#4F8CFF", subject: "physics", priority: "high", grade: "10" },
+  { id: "c10-phy-sound", name: "Sound", color: "#7EB8D8", subject: "physics", priority: "high", grade: "10" },
+  { id: "c10-phy-optics", name: "Geometrical Optics", color: "#5BA3A3", subject: "physics", priority: "high", grade: "10" },
+  { id: "c10-phy-electrostatics", name: "Electrostatics", color: "#E8C547", subject: "physics", priority: "high", grade: "10" },
+  { id: "c10-phy-current", name: "Current Electricity", color: "#E89A5C", subject: "physics", priority: "high", grade: "10" },
+  { id: "c10-phy-em", name: "Electromagnetism", color: "#E07A7A", subject: "physics", priority: "high", grade: "10" },
+  { id: "c10-phy-electronics", name: "Basic Electronics", color: "#C96B8A", subject: "physics", priority: "high", grade: "10" },
+  { id: "c10-phy-ict", name: "ICT", color: "#A85C9A", subject: "physics", priority: "medium", grade: "10" },
+  { id: "c10-phy-nuclear", name: "Atomic & Nuclear Physics", color: "#8B7AE0", subject: "physics", priority: "high", grade: "10" },
+  { id: "c10-chem-eq", name: "Chemical Equilibrium", color: "#7CDA6A", subject: "chemistry", priority: "high", grade: "10" },
+  { id: "c10-chem-acids", name: "Acids, Bases and Salts", color: "#2DD4BF", subject: "chemistry", priority: "high", grade: "10" },
+  { id: "c10-chem-organic", name: "Organic Chemistry", color: "#34D399", subject: "chemistry", priority: "high", grade: "10" },
+  { id: "c10-chem-hydro", name: "Hydrocarbons", color: "#A3E635", subject: "chemistry", priority: "high", grade: "10" },
+  { id: "c10-chem-biochem", name: "Biochemistry", color: "#14B8A6", subject: "chemistry", priority: "high", grade: "10" },
+  { id: "c10-chem-env", name: "Environmental Chemistry", color: "#84CC16", subject: "chemistry", priority: "high", grade: "10" },
+  { id: "c10-chem-industry", name: "Chemical Industries", color: "#65A30D", subject: "chemistry", priority: "high", grade: "10" },
+  { id: "c10-bio-gas", name: "Gaseous Exchange", color: "#34D399", subject: "biology", priority: "high", grade: "10" },
+  { id: "c10-bio-homeo", name: "Homeostasis", color: "#10B981", subject: "biology", priority: "high", grade: "10" },
+  { id: "c10-bio-coord", name: "Coordination & Control", color: "#059669", subject: "biology", priority: "high", grade: "10" },
+  { id: "c10-bio-repro", name: "Reproduction", color: "#047857", subject: "biology", priority: "high", grade: "10" },
+  { id: "c10-bio-inherit", name: "Inheritance", color: "#065F46", subject: "biology", priority: "high", grade: "10" },
+  { id: "c10-bio-env", name: "Man & Environment", color: "#6EE7B7", subject: "biology", priority: "high", grade: "10" },
+  { id: "c10-bio-biotech", name: "Biotechnology", color: "#A7F3D0", subject: "biology", priority: "high", grade: "10" },
+  { id: "c10-cs-prog", name: "Programming Concepts", color: "#38BDF8", subject: "computer", priority: "high", grade: "10" },
+  { id: "c10-cs-c", name: "C Programming Basics", color: "#0EA5E9", subject: "computer", priority: "high", grade: "10" },
+  { id: "c10-cs-vars", name: "Variables & Data Types", color: "#0284C7", subject: "computer", priority: "high", grade: "10" },
+  { id: "c10-cs-ops", name: "Operators", color: "#0369A1", subject: "computer", priority: "high", grade: "10" },
+  { id: "c10-cs-decision", name: "Decision Making", color: "#7DD3FC", subject: "computer", priority: "high", grade: "10" },
+  { id: "c10-cs-loops", name: "Loops", color: "#BAE6FD", subject: "computer", priority: "high", grade: "10" },
+  { id: "c10-cs-functions", name: "Functions", color: "#075985", subject: "computer", priority: "high", grade: "10" },
+  { id: "c10-cs-arrays", name: "Arrays", color: "#0C4A6E", subject: "computer", priority: "high", grade: "10" },
+  { id: "c10-cs-files", name: "File Handling", color: "#164E63", subject: "computer", priority: "medium", grade: "10" },
+  { id: "c10-cs-db", name: "Database Basics", color: "#155E75", subject: "computer", priority: "medium", grade: "10" },
+  { id: "c10-eng-grammar", name: "Grammar", color: "#F87171", subject: "english", priority: "high", grade: "10" },
+  { id: "c10-eng-essay", name: "Essay Writing", color: "#FB923C", subject: "english", priority: "high", grade: "10" },
+  { id: "c10-eng-letter", name: "Letter & Application", color: "#FDBA74", subject: "english", priority: "high", grade: "10" },
+  { id: "c10-eng-dialogue", name: "Dialogue Writing", color: "#FCA5A5", subject: "english", priority: "high", grade: "10" },
+  { id: "c10-eng-story", name: "Story Writing", color: "#F97316", subject: "english", priority: "high", grade: "10" },
+  { id: "c10-eng-reading", name: "Comprehension", color: "#EF4444", subject: "english", priority: "high", grade: "10" },
+  { id: "c10-eng-translation", name: "Translation", color: "#EA580C", subject: "english", priority: "high", grade: "10" },
+  { id: "c10-eng-textbook", name: "Textbook Questions", color: "#DC2626", subject: "english", priority: "high", grade: "10" },
+  { id: "c10-urdu-tashreeh", name: "تشریح", color: "#A855F7", subject: "urdu", priority: "high", grade: "10" },
+  { id: "c10-urdu-summary", name: "خلاصہ نویسی", color: "#9333EA", subject: "urdu", priority: "high", grade: "10" },
+  { id: "c10-urdu-essay", name: "مضمون نویسی", color: "#E879F9", subject: "urdu", priority: "high", grade: "10" },
+  { id: "c10-urdu-application", name: "درخواست نویسی", color: "#D946EF", subject: "urdu", priority: "high", grade: "10" },
+  { id: "c10-urdu-letter", name: "خط نویسی", color: "#C026D3", subject: "urdu", priority: "high", grade: "10" },
+  { id: "c10-urdu-idioms", name: "محاورے", color: "#7E22CE", subject: "urdu", priority: "high", grade: "10" },
+  { id: "c10-urdu-grammar", name: "اردو گرامر", color: "#6B21A8", subject: "urdu", priority: "high", grade: "10" },
+  { id: "c10-urdu-textbook", name: "درسی سوالات", color: "#581C87", subject: "urdu", priority: "high", grade: "10" },
+  { id: "c10-isl-quran", name: "Quranic Translations", color: "#22C55E", subject: "islamiat", priority: "high", grade: "10" },
+  { id: "c10-isl-hadith", name: "Ahadith", color: "#16A34A", subject: "islamiat", priority: "high", grade: "10" },
+  { id: "c10-isl-seerah", name: "Seerat-un-Nabi ﷺ", color: "#15803D", subject: "islamiat", priority: "high", grade: "10" },
+  { id: "c10-isl-morals", name: "Islamic Morals", color: "#4ADE80", subject: "islamiat", priority: "high", grade: "10" },
+  { id: "c10-isl-rights", name: "Rights in Islam", color: "#86EFAC", subject: "islamiat", priority: "high", grade: "10" },
+  { id: "c10-isl-pillars", name: "Pillars of Islam", color: "#BBF7D0", subject: "islamiat", priority: "high", grade: "10" },
+  { id: "c10-isl-short", name: "Short Questions (Translations)", color: "#14532D", subject: "islamiat", priority: "high", grade: "10" },
 ];
 
 export const TOPICS: Topic[] = [
@@ -409,6 +540,160 @@ export const TOPICS: Topic[] = [
   { id: "cs-flowchart", name: "Flowchart Symbols", chapter: "cs-flow", level: 0.62, description: "Standard flowchart symbols." },
   { id: "cs-trace", name: "Flowchart Tracing", chapter: "cs-flow", level: 0.68, description: "Trace and dry-run flowcharts." },
   { id: "cs-number", name: "Number System Basics", chapter: "cs-basics", level: 0.42, description: "Binary and decimal conversion." },
+  // ——— Class 10 Maths ———
+  { id: "c10-qe-solve", name: "Solving Quadratic Equations", chapter: "c10-math-quadratic", level: 0.2, description: "Solve quadratic equations by standard methods." },
+  { id: "c10-qe-factor", name: "Factorization Method", chapter: "c10-math-quadratic", level: 0.24, description: "Factor to find roots." },
+  { id: "c10-qe-square", name: "Completing the Square", chapter: "c10-math-quadratic", level: 0.3, description: "Complete the square to solve." },
+  { id: "c10-qe-formula", name: "Quadratic Formula", chapter: "c10-math-quadratic", level: 0.36, description: "Use x = (−b ± √Δ) / 2a." },
+  { id: "c10-qe-word", name: "Quadratic Word Problems", chapter: "c10-math-quadratic", level: 0.42, description: "Real-life quadratic problems." },
+  { id: "c10-th-roots", name: "Nature of Roots", chapter: "c10-math-theory", level: 0.4, description: "Real, equal or complex roots." },
+  { id: "c10-th-disc", name: "Discriminant", chapter: "c10-math-theory", level: 0.38, description: "Δ = b² − 4ac." },
+  { id: "c10-th-form", name: "Formation of Quadratic Equations", chapter: "c10-math-theory", level: 0.46, description: "Form equation from roots." },
+  { id: "c10-var-direct", name: "Direct Variation", chapter: "c10-math-variations", level: 0.28, description: "y ∝ x." },
+  { id: "c10-var-inverse", name: "Inverse Variation", chapter: "c10-math-variations", level: 0.32, description: "y ∝ 1/x." },
+  { id: "c10-var-joint", name: "Joint Variation", chapter: "c10-math-variations", level: 0.38, description: "Combined direct/inverse variation." },
+  { id: "c10-var-word", name: "Variation Word Problems", chapter: "c10-math-variations", level: 0.44, description: "Apply variations in problems." },
+  { id: "c10-pf-decomp", name: "Partial Fraction Decomposition", chapter: "c10-math-partial", level: 0.48, description: "Split into simpler fractions." },
+  { id: "c10-pf-proper", name: "Proper & Improper Fractions", chapter: "c10-math-partial", level: 0.44, description: "Know when to divide first." },
+  { id: "c10-pf-simp", name: "Simplifying Partial Fractions", chapter: "c10-math-partial", level: 0.52, description: "Simplify after decomposing." },
+  { id: "c10-fn-domain", name: "Domain & Range", chapter: "c10-math-sets", level: 0.34, description: "Inputs and outputs of a function." },
+  { id: "c10-fn-types", name: "Types of Functions", chapter: "c10-math-sets", level: 0.4, description: "One-one, onto and other types." },
+  { id: "c10-fn-comp", name: "Composite Functions", chapter: "c10-math-sets", level: 0.48, description: "f(g(x)) composition." },
+  { id: "c10-trig-ratios", name: "Trigonometric Ratios", chapter: "c10-math-trig", level: 0.5, description: "sin, cos, tan and reciprocals." },
+  { id: "c10-trig-id", name: "Trigonometric Identities", chapter: "c10-math-trig", level: 0.58, description: "Prove and use identities." },
+  { id: "c10-trig-height", name: "Heights & Distances", chapter: "c10-math-trig", level: 0.66, description: "Angle of elevation/depression problems." },
+  { id: "c10-trig-num", name: "Trig Numerical Problems", chapter: "c10-math-trig", level: 0.7, description: "Board-style trig numericals." },
+  { id: "c10-geo-circle", name: "Circle Constructions", chapter: "c10-math-geometry", level: 0.55, description: "Construct circles and related figures." },
+  { id: "c10-geo-tangent", name: "Tangents", chapter: "c10-math-geometry", level: 0.6, description: "Construct tangents to a circle." },
+  { id: "c10-geo-construct", name: "Practical Constructions", chapter: "c10-math-geometry", level: 0.64, description: "Standard geometry constructions." },
+
+  // ——— Class 10 Physics ———
+  { id: "c10-shm", name: "Simple Harmonic Motion", chapter: "c10-phy-shm", level: 0.2, description: "Basic SHM concepts." },
+  { id: "c10-wave-terms", name: "Wave Terms", chapter: "c10-phy-shm", level: 0.26, description: "Amplitude, wavelength, frequency, period." },
+  { id: "c10-wave-types", name: "Transverse & Longitudinal Waves", chapter: "c10-phy-shm", level: 0.3, description: "Two main wave types." },
+  { id: "c10-wave-eq", name: "Wave Equation", chapter: "c10-phy-shm", level: 0.36, description: "v = fλ numericals." },
+  { id: "c10-sound-char", name: "Characteristics of Sound", chapter: "c10-phy-sound", level: 0.32, description: "Loudness, pitch, quality." },
+  { id: "c10-echo", name: "Echo", chapter: "c10-phy-sound", level: 0.38, description: "Reflection of sound and echo formula." },
+  { id: "c10-ultrasound", name: "Ultrasound", chapter: "c10-phy-sound", level: 0.42, description: "Sound above human hearing." },
+  { id: "c10-sonar", name: "SONAR", chapter: "c10-phy-sound", level: 0.46, description: "Sound navigation and ranging." },
+  { id: "c10-reflect", name: "Reflection of Light", chapter: "c10-phy-optics", level: 0.4, description: "Laws of reflection and mirrors." },
+  { id: "c10-refract", name: "Refraction of Light", chapter: "c10-phy-optics", level: 0.46, description: "Bending of light and Snell's law idea." },
+  { id: "c10-lenses", name: "Lenses", chapter: "c10-phy-optics", level: 0.52, description: "Convex and concave lenses." },
+  { id: "c10-lens-formula", name: "Lens Formula", chapter: "c10-phy-optics", level: 0.58, description: "1/f = 1/v − 1/u numericals." },
+  { id: "c10-ray", name: "Ray Diagrams", chapter: "c10-phy-optics", level: 0.56, description: "Draw image formation by lenses." },
+  { id: "c10-charge", name: "Electric Charge", chapter: "c10-phy-electrostatics", level: 0.44, description: "Positive and negative charge." },
+  { id: "c10-coulomb", name: "Coulomb's Law", chapter: "c10-phy-electrostatics", level: 0.5, description: "Force between charges." },
+  { id: "c10-efield", name: "Electric Field", chapter: "c10-phy-electrostatics", level: 0.54, description: "Field around a charge." },
+  { id: "c10-pd", name: "Potential Difference", chapter: "c10-phy-electrostatics", level: 0.58, description: "Voltage between two points." },
+  { id: "c10-ohm", name: "Ohm's Law", chapter: "c10-phy-current", level: 0.55, description: "V = IR." },
+  { id: "c10-res", name: "Resistance", chapter: "c10-phy-current", level: 0.58, description: "Opposition to current." },
+  { id: "c10-series-par", name: "Series & Parallel Circuits", chapter: "c10-phy-current", level: 0.64, description: "Combine resistors." },
+  { id: "c10-power", name: "Electric Power", chapter: "c10-phy-current", level: 0.68, description: "P = VI power numericals." },
+  { id: "c10-mag-field", name: "Magnetic Field", chapter: "c10-phy-em", level: 0.6, description: "Field due to current/magnet." },
+  { id: "c10-electromagnet", name: "Electromagnets", chapter: "c10-phy-em", level: 0.64, description: "Magnetism from electric current." },
+  { id: "c10-motor", name: "Electric Motor", chapter: "c10-phy-em", level: 0.7, description: "Current to motion." },
+  { id: "c10-generator", name: "Generator", chapter: "c10-phy-em", level: 0.74, description: "Motion to current." },
+  { id: "c10-transformer", name: "Transformer", chapter: "c10-phy-em", level: 0.78, description: "Step up / step down voltage." },
+  { id: "c10-diode", name: "Diodes", chapter: "c10-phy-electronics", level: 0.66, description: "Allow current one way." },
+  { id: "c10-transistor", name: "Transistors", chapter: "c10-phy-electronics", level: 0.72, description: "Switching and amplification." },
+  { id: "c10-logic", name: "Logic Gates", chapter: "c10-phy-electronics", level: 0.76, description: "AND, OR, NOT and truth tables." },
+  { id: "c10-comm", name: "Communication Systems", chapter: "c10-phy-ict", level: 0.62, description: "How information is sent." },
+  { id: "c10-fiber", name: "Optical Fiber", chapter: "c10-phy-ict", level: 0.68, description: "Light signals in fiber." },
+  { id: "c10-sat", name: "Satellite Communication", chapter: "c10-phy-ict", level: 0.72, description: "Long-distance via satellite." },
+  { id: "c10-radioact", name: "Radioactivity", chapter: "c10-phy-nuclear", level: 0.7, description: "Unstable nuclei emit radiation." },
+  { id: "c10-abg", name: "Alpha, Beta, Gamma Rays", chapter: "c10-phy-nuclear", level: 0.74, description: "Three types of radiation." },
+  { id: "c10-fission", name: "Nuclear Fission", chapter: "c10-phy-nuclear", level: 0.8, description: "Heavy nucleus splits." },
+  { id: "c10-fusion", name: "Nuclear Fusion", chapter: "c10-phy-nuclear", level: 0.84, description: "Light nuclei join." },
+
+  // ——— Class 10 Chemistry ———
+  { id: "c10-rev", name: "Reversible Reactions", chapter: "c10-chem-eq", level: 0.3, description: "Reactions that go both ways." },
+  { id: "c10-lechat", name: "Le Chatelier's Principle", chapter: "c10-chem-eq", level: 0.4, description: "How equilibrium shifts." },
+  { id: "c10-ph", name: "pH Scale", chapter: "c10-chem-acids", level: 0.35, description: "Acidic, neutral, basic scale." },
+  { id: "c10-ind", name: "Indicators", chapter: "c10-chem-acids", level: 0.38, description: "Show acid or base." },
+  { id: "c10-neut", name: "Neutralization", chapter: "c10-chem-acids", level: 0.44, description: "Acid + base → salt + water." },
+  { id: "c10-salt", name: "Salt Preparation", chapter: "c10-chem-acids", level: 0.5, description: "Methods to prepare salts." },
+  { id: "c10-func", name: "Functional Groups", chapter: "c10-chem-organic", level: 0.48, description: "Identify organic groups." },
+  { id: "c10-alkanes", name: "Alkanes", chapter: "c10-chem-organic", level: 0.52, description: "Saturated hydrocarbons." },
+  { id: "c10-alkenes", name: "Alkenes", chapter: "c10-chem-organic", level: 0.56, description: "Unsaturated hydrocarbons." },
+  { id: "c10-hc-prep", name: "Hydrocarbon Preparation", chapter: "c10-chem-hydro", level: 0.54, description: "How hydrocarbons are made." },
+  { id: "c10-hc-prop", name: "Hydrocarbon Properties", chapter: "c10-chem-hydro", level: 0.58, description: "Physical and chemical properties." },
+  { id: "c10-hc-uses", name: "Hydrocarbon Uses", chapter: "c10-chem-hydro", level: 0.62, description: "Everyday uses." },
+  { id: "c10-carbs", name: "Carbohydrates", chapter: "c10-chem-biochem", level: 0.55, description: "Sugars and starches." },
+  { id: "c10-protein", name: "Proteins", chapter: "c10-chem-biochem", level: 0.58, description: "Amino acid polymers." },
+  { id: "c10-fats", name: "Fats", chapter: "c10-chem-biochem", level: 0.6, description: "Lipids and oils." },
+  { id: "c10-vit", name: "Vitamins", chapter: "c10-chem-biochem", level: 0.64, description: "Essential organic nutrients." },
+  { id: "c10-air", name: "Air Pollution", chapter: "c10-chem-env", level: 0.5, description: "Causes and effects of dirty air." },
+  { id: "c10-water-pol", name: "Water Pollution", chapter: "c10-chem-env", level: 0.54, description: "Causes and effects of dirty water." },
+  { id: "c10-ghg", name: "Greenhouse Effect", chapter: "c10-chem-env", level: 0.58, description: "Trapping of heat in atmosphere." },
+  { id: "c10-ozone", name: "Ozone Layer", chapter: "c10-chem-env", level: 0.62, description: "Ozone depletion and protection." },
+  { id: "c10-fert", name: "Fertilizers", chapter: "c10-chem-industry", level: 0.55, description: "Industrial fertilizer production." },
+  { id: "c10-cement", name: "Cement", chapter: "c10-chem-industry", level: 0.58, description: "Cement manufacturing." },
+  { id: "c10-glass", name: "Glass", chapter: "c10-chem-industry", level: 0.6, description: "Glass industry." },
+  { id: "c10-soap", name: "Soap & Detergents", chapter: "c10-chem-industry", level: 0.66, description: "Soap and detergent making." },
+
+  // ——— Class 10 Biology ———
+  { id: "c10-lungs", name: "Human Respiratory System", chapter: "c10-bio-gas", level: 0.3, description: "Breathing organs and gas exchange." },
+  { id: "c10-kidney", name: "Kidney & Nephron", chapter: "c10-bio-homeo", level: 0.4, description: "Excretion and urine formation." },
+  { id: "c10-nervous", name: "Nervous System", chapter: "c10-bio-coord", level: 0.45, description: "Brain, nerves and responses." },
+  { id: "c10-endocrine", name: "Endocrine Glands", chapter: "c10-bio-coord", level: 0.5, description: "Hormones and glands." },
+  { id: "c10-eye", name: "Human Eye", chapter: "c10-bio-coord", level: 0.52, description: "Structure and image formation." },
+  { id: "c10-ear", name: "Human Ear", chapter: "c10-bio-coord", level: 0.54, description: "Hearing and balance." },
+  { id: "c10-repro", name: "Reproduction", chapter: "c10-bio-repro", level: 0.48, description: "Human / plant reproduction basics." },
+  { id: "c10-flower", name: "Flower Structure", chapter: "c10-bio-repro", level: 0.5, description: "Parts of a flower diagram." },
+  { id: "c10-dna", name: "DNA", chapter: "c10-bio-inherit", level: 0.55, description: "Structure and role of DNA." },
+  { id: "c10-mito-meio", name: "Mitosis vs Meiosis", chapter: "c10-bio-inherit", level: 0.58, description: "Compare cell division types." },
+  { id: "c10-mendel", name: "Mendel's Laws", chapter: "c10-bio-inherit", level: 0.64, description: "Laws of inheritance." },
+  { id: "c10-env-pol", name: "Environmental Pollution", chapter: "c10-bio-env", level: 0.6, description: "Human impact on environment." },
+  { id: "c10-biotech-apps", name: "Biotechnology Applications", chapter: "c10-bio-biotech", level: 0.7, description: "Uses of biotech in life." },
+
+  // ——— Class 10 Computer ———
+  { id: "c10-prog-concepts", name: "Programming Concepts", chapter: "c10-cs-prog", level: 0.1, description: "What programming is." },
+  { id: "c10-c-basics", name: "C Language Basics", chapter: "c10-cs-c", level: 0.2, description: "Structure of a C program." },
+  { id: "c10-vars", name: "Variables & Data Types", chapter: "c10-cs-vars", level: 0.25, description: "int, float, char and variables." },
+  { id: "c10-ops", name: "Operators", chapter: "c10-cs-ops", level: 0.3, description: "Arithmetic, relational, logical ops." },
+  { id: "c10-if", name: "if / switch", chapter: "c10-cs-decision", level: 0.4, description: "Decision making statements." },
+  { id: "c10-loops", name: "Loops (for/while)", chapter: "c10-cs-loops", level: 0.48, description: "Repeat code with loops." },
+  { id: "c10-fn", name: "Functions", chapter: "c10-cs-functions", level: 0.55, description: "Write and call functions." },
+  { id: "c10-arr", name: "Arrays", chapter: "c10-cs-arrays", level: 0.6, description: "Store many values." },
+  { id: "c10-file", name: "File Handling", chapter: "c10-cs-files", level: 0.68, description: "Read/write files in C." },
+  { id: "c10-db", name: "Database Basics", chapter: "c10-cs-db", level: 0.72, description: "Tables and simple DB ideas." },
+  { id: "c10-prog-fact", name: "Program: Factorial", chapter: "c10-cs-loops", level: 0.52, description: "Compute factorial with a loop." },
+  { id: "c10-prog-prime", name: "Program: Prime Number", chapter: "c10-cs-loops", level: 0.56, description: "Check if a number is prime." },
+  { id: "c10-prog-fib", name: "Program: Fibonacci", chapter: "c10-cs-loops", level: 0.58, description: "Generate Fibonacci series." },
+  { id: "c10-prog-arr", name: "Program: Arrays", chapter: "c10-cs-arrays", level: 0.66, description: "Sum, average, largest in array." },
+
+  // ——— Class 10 English ———
+  { id: "c10-eng-tenses", name: "Tenses", chapter: "c10-eng-grammar", level: 0.1, description: "Present, past, future forms." },
+  { id: "c10-eng-voice", name: "Active / Passive Voice", chapter: "c10-eng-grammar", level: 0.28, description: "Change voice of sentences." },
+  { id: "c10-eng-narr", name: "Direct / Indirect Speech", chapter: "c10-eng-grammar", level: 0.32, description: "Reported speech." },
+  { id: "c10-eng-essay", name: "Essay Writing", chapter: "c10-eng-essay", level: 0.45, description: "Board-style essays." },
+  { id: "c10-eng-app", name: "Application Writing", chapter: "c10-eng-letter", level: 0.4, description: "Formal applications." },
+  { id: "c10-eng-letter", name: "Letter Writing", chapter: "c10-eng-letter", level: 0.42, description: "Formal and informal letters." },
+  { id: "c10-eng-dial", name: "Dialogue Writing", chapter: "c10-eng-dialogue", level: 0.44, description: "Write short dialogues." },
+  { id: "c10-eng-story", name: "Story Writing", chapter: "c10-eng-story", level: 0.5, description: "Short stories with morals." },
+  { id: "c10-eng-comp", name: "Comprehension", chapter: "c10-eng-reading", level: 0.35, description: "Unseen passage practice." },
+  { id: "c10-eng-trans", name: "Translation", chapter: "c10-eng-translation", level: 0.48, description: "Urdu to English translation." },
+  { id: "c10-eng-short", name: "Textbook Short Questions", chapter: "c10-eng-textbook", level: 0.55, description: "All book short questions." },
+
+  // ——— Class 10 Urdu ———
+  { id: "c10-urdu-tash", name: "تشریح", chapter: "c10-urdu-tashreeh", level: 0.35, description: "نظم و نثر کی تشریح۔" },
+  { id: "c10-urdu-khul", name: "خلاصہ نویسی", chapter: "c10-urdu-summary", level: 0.4, description: "متن کا خلاصہ۔" },
+  { id: "c10-urdu-maz", name: "مضمون نویسی", chapter: "c10-urdu-essay", level: 0.48, description: "بورڈ مشق مضامین۔" },
+  { id: "c10-urdu-dark", name: "درخواست نویسی", chapter: "c10-urdu-application", level: 0.42, description: "رسمی درخواستیں۔" },
+  { id: "c10-urdu-khat", name: "خط نویسی", chapter: "c10-urdu-letter", level: 0.44, description: "خطوط لکھنا۔" },
+  { id: "c10-urdu-maha", name: "محاورے", chapter: "c10-urdu-idioms", level: 0.3, description: "محاوروں کا استعمال۔" },
+  { id: "c10-urdu-gram", name: "اردو گرامر", chapter: "c10-urdu-grammar", level: 0.2, description: "گرامر کی بنیادی مشق۔" },
+  { id: "c10-urdu-darsi", name: "درسی سوالات", chapter: "c10-urdu-textbook", level: 0.55, description: "کتاب کے سوالات۔" },
+
+  // ——— Class 10 Islamiat ———
+  { id: "c10-isl-quran", name: "Quranic Translations", chapter: "c10-isl-quran", level: 0.2, description: "Selected ayat with translation." },
+  { id: "c10-isl-hadith", name: "Ahadith with Translation", chapter: "c10-isl-hadith", level: 0.28, description: "Selected ahadith." },
+  { id: "c10-isl-seerah", name: "Seerat-un-Nabi ﷺ", chapter: "c10-isl-seerah", level: 0.4, description: "Life of the Holy Prophet ﷺ." },
+  { id: "c10-isl-morals", name: "Islamic Moral Values", chapter: "c10-isl-morals", level: 0.48, description: "Character and ethics in Islam." },
+  { id: "c10-isl-rights", name: "Rights in Islam", chapter: "c10-isl-rights", level: 0.52, description: "Rights of parents, neighbors, others." },
+  { id: "c10-isl-pillars", name: "Pillars of Islam", chapter: "c10-isl-pillars", level: 0.35, description: "Five pillars and related teachings." },
+  { id: "c10-isl-short", name: "Short Questions from Translations", chapter: "c10-isl-short", level: 0.58, description: "Board short questions on translations." },
+
 ];
 
 export const EDGES: Edge[] = [
@@ -658,6 +943,115 @@ export const EDGES: Edge[] = [
   { topicId: "cs-algo", prerequisiteId: "cs-chars", reason: "Algorithms are how computers solve problems" },
   { topicId: "cs-flowchart", prerequisiteId: "cs-algo", reason: "Flowcharts visualize algorithms" },
   { topicId: "cs-trace", prerequisiteId: "cs-flowchart", reason: "Tracing needs flowchart literacy" },
+  // Class 10 maths
+  { topicId: "c10-qe-factor", prerequisiteId: "c10-qe-solve", reason: "Factoring is one method of solving" },
+  { topicId: "c10-qe-square", prerequisiteId: "c10-qe-solve", reason: "Completing square is another method" },
+  { topicId: "c10-qe-formula", prerequisiteId: "c10-qe-square", reason: "Formula comes from completing square" },
+  { topicId: "c10-qe-word", prerequisiteId: "c10-qe-formula", reason: "Word problems use solving methods" },
+  { topicId: "c10-th-disc", prerequisiteId: "c10-qe-formula", reason: "Discriminant is inside the formula" },
+  { topicId: "c10-th-roots", prerequisiteId: "c10-th-disc", reason: "Nature of roots uses discriminant" },
+  { topicId: "c10-th-form", prerequisiteId: "c10-th-roots", reason: "Forming equations needs root ideas" },
+  { topicId: "c10-var-inverse", prerequisiteId: "c10-var-direct", reason: "Inverse builds on direct variation" },
+  { topicId: "c10-var-joint", prerequisiteId: "c10-var-inverse", reason: "Joint combines variation types" },
+  { topicId: "c10-var-word", prerequisiteId: "c10-var-joint", reason: "Word problems use all variations" },
+  { topicId: "c10-pf-decomp", prerequisiteId: "c10-pf-proper", reason: "Decompose after classifying fractions" },
+  { topicId: "c10-pf-simp", prerequisiteId: "c10-pf-decomp", reason: "Simplify after decomposition" },
+  { topicId: "c10-fn-types", prerequisiteId: "c10-fn-domain", reason: "Types need domain/range first" },
+  { topicId: "c10-fn-comp", prerequisiteId: "c10-fn-types", reason: "Composition needs function types" },
+  { topicId: "c10-trig-id", prerequisiteId: "c10-trig-ratios", reason: "Identities use trig ratios" },
+  { topicId: "c10-trig-height", prerequisiteId: "c10-trig-ratios", reason: "Heights use trig ratios" },
+  { topicId: "c10-trig-num", prerequisiteId: "c10-trig-id", reason: "Numericals use identities too" },
+  { topicId: "c10-geo-tangent", prerequisiteId: "c10-geo-circle", reason: "Tangents need circle constructions" },
+  { topicId: "c10-geo-construct", prerequisiteId: "c10-geo-tangent", reason: "Advanced constructions build on tangents" },
+  { topicId: "c10-wave-terms", prerequisiteId: "c10-shm", reason: "Wave language follows SHM" },
+  { topicId: "c10-wave-types", prerequisiteId: "c10-wave-terms", reason: "Types use wave terms" },
+  { topicId: "c10-wave-eq", prerequisiteId: "c10-wave-terms", reason: "Equation uses f and λ" },
+  { topicId: "c10-sound-char", prerequisiteId: "c10-wave-types", reason: "Sound is a longitudinal wave" },
+  { topicId: "c10-echo", prerequisiteId: "c10-sound-char", reason: "Echo is reflected sound" },
+  { topicId: "c10-ultrasound", prerequisiteId: "c10-sound-char", reason: "Ultrasound is high-frequency sound" },
+  { topicId: "c10-sonar", prerequisiteId: "c10-echo", reason: "SONAR uses echo principle" },
+  { topicId: "c10-refract", prerequisiteId: "c10-reflect", reason: "Refraction after reflection basics" },
+  { topicId: "c10-lenses", prerequisiteId: "c10-refract", reason: "Lenses bend light by refraction" },
+  { topicId: "c10-ray", prerequisiteId: "c10-lenses", reason: "Ray diagrams for lenses" },
+  { topicId: "c10-lens-formula", prerequisiteId: "c10-lenses", reason: "Formula applies to lenses" },
+  { topicId: "c10-coulomb", prerequisiteId: "c10-charge", reason: "Coulomb's law needs charge" },
+  { topicId: "c10-efield", prerequisiteId: "c10-coulomb", reason: "Field from force ideas" },
+  { topicId: "c10-pd", prerequisiteId: "c10-efield", reason: "Potential links to field" },
+  { topicId: "c10-ohm", prerequisiteId: "c10-pd", reason: "Ohm's law uses voltage" },
+  { topicId: "c10-res", prerequisiteId: "c10-ohm", reason: "Resistance is in Ohm's law" },
+  { topicId: "c10-series-par", prerequisiteId: "c10-res", reason: "Circuit combinations use resistance" },
+  { topicId: "c10-power", prerequisiteId: "c10-ohm", reason: "Power uses V and I" },
+  { topicId: "c10-electromagnet", prerequisiteId: "c10-mag-field", reason: "Electromagnets make fields" },
+  { topicId: "c10-motor", prerequisiteId: "c10-mag-field", reason: "Motor uses magnetic force on current" },
+  { topicId: "c10-generator", prerequisiteId: "c10-motor", reason: "Generator is reverse of motor idea" },
+  { topicId: "c10-transformer", prerequisiteId: "c10-generator", reason: "Transformers link to AC generation" },
+  { topicId: "c10-transistor", prerequisiteId: "c10-diode", reason: "Transistors build on diode ideas" },
+  { topicId: "c10-logic", prerequisiteId: "c10-transistor", reason: "Logic gates use electronic switching" },
+  { topicId: "c10-fiber", prerequisiteId: "c10-comm", reason: "Fiber is one communication medium" },
+  { topicId: "c10-sat", prerequisiteId: "c10-comm", reason: "Satellites are another medium" },
+  { topicId: "c10-abg", prerequisiteId: "c10-radioact", reason: "Rays come from radioactivity" },
+  { topicId: "c10-fission", prerequisiteId: "c10-abg", reason: "Fission after radiation basics" },
+  { topicId: "c10-fusion", prerequisiteId: "c10-fission", reason: "Compare fusion after fission" },
+  { topicId: "c10-lechat", prerequisiteId: "c10-rev", reason: "Le Chatelier applies to equilibrium" },
+  { topicId: "c10-ind", prerequisiteId: "c10-ph", reason: "Indicators show pH ranges" },
+  { topicId: "c10-neut", prerequisiteId: "c10-ph", reason: "Neutralization reaches near pH 7" },
+  { topicId: "c10-salt", prerequisiteId: "c10-neut", reason: "Salts form via neutralization" },
+  { topicId: "c10-alkanes", prerequisiteId: "c10-func", reason: "Alkanes are organic with C–H groups" },
+  { topicId: "c10-alkenes", prerequisiteId: "c10-alkanes", reason: "Alkenes after alkanes" },
+  { topicId: "c10-hc-prep", prerequisiteId: "c10-alkenes", reason: "Preparation for hydrocarbon families" },
+  { topicId: "c10-hc-prop", prerequisiteId: "c10-hc-prep", reason: "Properties after preparation" },
+  { topicId: "c10-hc-uses", prerequisiteId: "c10-hc-prop", reason: "Uses follow properties" },
+  { topicId: "c10-protein", prerequisiteId: "c10-carbs", reason: "Biomolecules studied together" },
+  { topicId: "c10-fats", prerequisiteId: "c10-protein", reason: "Biomolecule sequence" },
+  { topicId: "c10-vit", prerequisiteId: "c10-fats", reason: "Vitamins after main biomolecules" },
+  { topicId: "c10-water-pol", prerequisiteId: "c10-air", reason: "Pollution topics build together" },
+  { topicId: "c10-ghg", prerequisiteId: "c10-air", reason: "Greenhouse links to air chemistry" },
+  { topicId: "c10-ozone", prerequisiteId: "c10-ghg", reason: "Atmosphere protection topics" },
+  { topicId: "c10-cement", prerequisiteId: "c10-fert", reason: "Industry chapters sequence" },
+  { topicId: "c10-glass", prerequisiteId: "c10-cement", reason: "Industry chapters sequence" },
+  { topicId: "c10-soap", prerequisiteId: "c10-glass", reason: "Industry chapters sequence" },
+  { topicId: "c10-endocrine", prerequisiteId: "c10-nervous", reason: "Chemical control after nervous control" },
+  { topicId: "c10-eye", prerequisiteId: "c10-nervous", reason: "Sense organs after nervous system" },
+  { topicId: "c10-ear", prerequisiteId: "c10-eye", reason: "Sense organs sequence" },
+  { topicId: "c10-flower", prerequisiteId: "c10-repro", reason: "Flower is plant reproduction structure" },
+  { topicId: "c10-mito-meio", prerequisiteId: "c10-dna", reason: "Division links to genetic material" },
+  { topicId: "c10-mendel", prerequisiteId: "c10-mito-meio", reason: "Inheritance after cell division" },
+  { topicId: "c10-biotech-apps", prerequisiteId: "c10-dna", reason: "Biotech uses DNA knowledge" },
+  { topicId: "c10-c-basics", prerequisiteId: "c10-prog-concepts", reason: "C syntax after programming ideas" },
+  { topicId: "c10-vars", prerequisiteId: "c10-c-basics", reason: "Variables need C basics" },
+  { topicId: "c10-ops", prerequisiteId: "c10-vars", reason: "Operators act on variables" },
+  { topicId: "c10-if", prerequisiteId: "c10-ops", reason: "Decisions use operators" },
+  { topicId: "c10-loops", prerequisiteId: "c10-if", reason: "Loops after decisions" },
+  { topicId: "c10-prog-fact", prerequisiteId: "c10-loops", reason: "Factorial uses loops" },
+  { topicId: "c10-prog-prime", prerequisiteId: "c10-loops", reason: "Prime check uses loops" },
+  { topicId: "c10-prog-fib", prerequisiteId: "c10-loops", reason: "Fibonacci uses loops" },
+  { topicId: "c10-fn", prerequisiteId: "c10-loops", reason: "Functions after control flow" },
+  { topicId: "c10-arr", prerequisiteId: "c10-fn", reason: "Arrays after functions basics" },
+  { topicId: "c10-prog-arr", prerequisiteId: "c10-arr", reason: "Array programs need arrays" },
+  { topicId: "c10-file", prerequisiteId: "c10-arr", reason: "Files after core programming" },
+  { topicId: "c10-db", prerequisiteId: "c10-file", reason: "Databases after data storage ideas" },
+  { topicId: "c10-eng-voice", prerequisiteId: "c10-eng-tenses", reason: "Voice needs tense knowledge" },
+  { topicId: "c10-eng-narr", prerequisiteId: "c10-eng-tenses", reason: "Narration needs tense shifts" },
+  { topicId: "c10-eng-essay", prerequisiteId: "c10-eng-tenses", reason: "Essays need grammar" },
+  { topicId: "c10-eng-app", prerequisiteId: "c10-eng-tenses", reason: "Applications need grammar" },
+  { topicId: "c10-eng-letter", prerequisiteId: "c10-eng-app", reason: "Letters close to applications" },
+  { topicId: "c10-eng-dial", prerequisiteId: "c10-eng-tenses", reason: "Dialogues need correct tense" },
+  { topicId: "c10-eng-story", prerequisiteId: "c10-eng-dial", reason: "Stories often include dialogue" },
+  { topicId: "c10-eng-comp", prerequisiteId: "c10-eng-tenses", reason: "Reading needs language basics" },
+  { topicId: "c10-eng-trans", prerequisiteId: "c10-eng-tenses", reason: "Translation needs grammar" },
+  { topicId: "c10-eng-short", prerequisiteId: "c10-eng-comp", reason: "Book answers need reading skill" },
+  { topicId: "c10-urdu-khul", prerequisiteId: "c10-urdu-tash", reason: "خلاصہ تشریح کے بعد" },
+  { topicId: "c10-urdu-maz", prerequisiteId: "c10-urdu-gram", reason: "مضمون کے لیے گرامر" },
+  { topicId: "c10-urdu-dark", prerequisiteId: "c10-urdu-gram", reason: "درخواست کے لیے درست زبان" },
+  { topicId: "c10-urdu-khat", prerequisiteId: "c10-urdu-dark", reason: "خط درخواست سے ملتا جلتا ہے" },
+  { topicId: "c10-urdu-maha", prerequisiteId: "c10-urdu-gram", reason: "محاورے گرامر کے ساتھ" },
+  { topicId: "c10-urdu-darsi", prerequisiteId: "c10-urdu-tash", reason: "درسی سوالات تشریح کے بعد" },
+  { topicId: "c10-isl-hadith", prerequisiteId: "c10-isl-quran", reason: "Hadith after Quran translations" },
+  { topicId: "c10-isl-pillars", prerequisiteId: "c10-isl-quran", reason: "Pillars linked to core teachings" },
+  { topicId: "c10-isl-seerah", prerequisiteId: "c10-isl-pillars", reason: "Seerah after foundations" },
+  { topicId: "c10-isl-morals", prerequisiteId: "c10-isl-seerah", reason: "Morals from seerah" },
+  { topicId: "c10-isl-rights", prerequisiteId: "c10-isl-morals", reason: "Rights are applied morals" },
+  { topicId: "c10-isl-short", prerequisiteId: "c10-isl-hadith", reason: "Short questions from translations" },
 ];
 
 export function chapterColor(id: ChapterId) {
