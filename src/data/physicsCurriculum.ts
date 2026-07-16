@@ -401,7 +401,8 @@ export const CHAPTERS: {
   { id: "c11-bio-ecology", name: "Ecology", color: "#166534", subject: "biology", priority: "high", grade: "11" },
 ];
 
-export const TOPICS: Topic[] = [
+// ponytail: TS2590 on 1k+ topic literals vs ChapterId union; upgrade: split data by subject/grade files
+export const TOPICS = ([
   // Measurement — foundation
   { id: "base-qty", name: "Base & Derived Quantities", chapter: "measurement", level: 0.05, description: "Physical quantities and how they are classified." },
   { id: "si-units", name: "SI Units", chapter: "measurement", level: 0.08, description: "Standard units used in Physics." },
@@ -1726,7 +1727,7 @@ export const TOPICS: Topic[] = [
   { id: "c11b-climate-eco", name: "Climate Change", chapter: "c11-bio-ecology", level: 0.76, description: "Long-term climate shifts." },
   { id: "c11b-conserv-eco", name: "Conservation", chapter: "c11-bio-ecology", level: 0.8, description: "Protecting ecosystems." },
 
-];
+] as any[]) as Topic[];
 
 export const EDGES: Edge[] = [
   { topicId: "si-units", prerequisiteId: "base-qty", reason: "Need quantities before assigning units" },
