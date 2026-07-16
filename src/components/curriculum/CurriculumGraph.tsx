@@ -72,6 +72,7 @@ const SUBJECTS: { id: SubjectId; label: string; blurb: string; accent: string }[
 const GRADES: { id: GradeId; label: string; blurb: string }[] = [
   { id: "9", label: "Class 9", blurb: "Karachi Board · Science group map" },
   { id: "10", label: "Class 10", blurb: "Karachi Board · Science group map" },
+  { id: "11", label: "Class 11", blurb: "Intermediate Part-I · Science group map" },
 ];
 
 function enabledForSubject(subject: SubjectId, grade: GradeId): Record<ChapterId, boolean> {
